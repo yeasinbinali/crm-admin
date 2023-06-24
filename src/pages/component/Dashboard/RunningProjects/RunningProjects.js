@@ -17,7 +17,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
+    backgroundColor: theme.palette.mode === "light" ? '#0097a7' : "#308fe8",
   },
 }));
 
@@ -41,7 +41,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon />
+              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
               Data Configuration
             </Typography>
             <Button size="small">Failed</Button>
@@ -64,7 +64,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon />
+              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
               Design Tool
             </Typography>
             <Button size="small">Progessing</Button>
@@ -87,7 +87,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon />
+              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
               Internet Configuration
             </Typography>
             <Button size="small">Progressing</Button>
@@ -110,7 +110,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon />
+              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
               Banner Completation
             </Typography>
             <Button size="small">Progressing</Button>
@@ -133,7 +133,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon />
+              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
               IT Solution
             </Typography>
             <Button size="small">Success</Button>
