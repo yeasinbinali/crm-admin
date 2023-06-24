@@ -12,7 +12,7 @@ const PendingWorks = () => {
         sx={{ padding: "10px", backgroundColor: "#E3F4F4" }}
       >
         Pending Works
-      </Typography>
+      </Typography><hr style={{margin: '0'}}/>
       <Box
         sx={{
           display: "flex",

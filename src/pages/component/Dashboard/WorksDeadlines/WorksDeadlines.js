@@ -9,11 +9,11 @@ const WorksDeadlines = () => {
         variant="h6"
         sx={{ padding: "10px", backgroundColor: "#E3F4F4" }}
       >
-        Pending Works
-      </Typography>
+        Works Deadlines
+      </Typography><hr style={{margin: '0'}}/>
       <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 15px 0 15px', textAlign: 'center'}}>
-          <Typography>Task</Typography>
-          <Typography>End Deadline</Typography>
+          <Typography sx={{fontWeight: '600'}}>Task Name</Typography>
+          <Typography sx={{fontWeight: '600'}}>End Deadline</Typography>
       </Box><hr />
       <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 15px 0 15px'}}>
           <Typography>Phython Development</Typography>
@@ -36,7 +36,7 @@ const WorksDeadlines = () => {
           <Typography>5 November, 2023</Typography>
       </Box>
       <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px 15px 38px 15px'}}>
-          <Typography>UI/UX Designer</Typography>
+          <Typography>UI/UX Design</Typography>
           <Typography>10 December, 2023</Typography>
       </Box>
     </Box>
