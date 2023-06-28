@@ -12,6 +12,15 @@ import Typography from "@mui/material/Typography";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { Outlet } from "react-router";
 import { Link } from "@mui/material";
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
+import AutoModeIcon from '@mui/icons-material/AutoMode';
+import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
+import PersonIcon from '@mui/icons-material/Person';
+import RoomPreferencesIcon from '@mui/icons-material/RoomPreferences';
 
 const drawerWidth = 240;
 
@@ -27,35 +36,15 @@ function ResponsiveDrawer(props) {
     <div>
       <Divider />
       <List sx={{ display: "grid", gridColumn: "auto" }}>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Dashboard</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Customers</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Transaction</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Sales</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Task</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Accounting</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Report</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Attendance</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Recruitment</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Payroll</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Stock</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Tickets</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Utilities</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Charts</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Icons</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Other Page</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>UI Elements</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Settings</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Companies</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Public Holiday</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>User</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Items</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Departments</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Documents</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Traning</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Calendar</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Notice Board</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Message</Link>
-        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '3px', color: 'black'}}>Notes</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><DashboardIcon sx={{marginRight: '3px'}}/>Dashboard</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><GroupAddIcon sx={{marginRight: '3px'}}/>Customers</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><AccountBalanceWalletIcon sx={{marginRight: '3px'}}/>Transaction</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><AttachMoneyIcon sx={{marginRight: '3px'}}/>Sales</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><AddToPhotosIcon sx={{marginRight: '3px'}}/>Attendance</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><AutoModeIcon sx={{marginRight: '3px'}}/>Recruitment</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><HolidayVillageIcon sx={{marginRight: '3px'}}/>Public Holiday</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><PersonIcon sx={{marginRight: '3px'}}/>User</Link>
+        <Link href="" sx={{textDecoration: 'none', fontSize: '18px', marginLeft: '20px', marginBottom: '10px', color: 'black', display: 'flex', alignItems: 'center'}}><RoomPreferencesIcon sx={{marginRight: '3px'}}/>Departments</Link>
       </List>
       <Divider />
     </div>
