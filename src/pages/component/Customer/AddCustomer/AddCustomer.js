@@ -6,7 +6,13 @@ import { Typography } from "@mui/material";
 
 const AddCustomer = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
+  console.log(imageHostKey);
+
+  const onSubmit = (data) => {
+    console.log(data);
+  }
   return (
     <Container>
       <Typography
@@ -71,7 +77,7 @@ const AddCustomer = () => {
           </label>
           <br />
           <input
-            name="mobile"
+            name="number"
             type="number"
             style={{
               width: "50%",
@@ -142,7 +148,72 @@ const AddCustomer = () => {
             <option value="Regular">Regular</option>
           </select>
         </div>
-        <input type="submit" />
+        <div style={{ marginBottom: "10px" }}>
+          <label
+            style={{ fontSize: "15px", fontWeight: "bold", color: "#1C315E" }}
+          >
+            Sex
+          </label>
+          <br />
+          <input
+            type="radio"
+            name="male"
+            {...register("sex", { required: true })}
+          />
+          <lable>Male</lable>
+          <input
+            type="radio"
+            name="female"
+            style={{ marginLeft: "30px" }}
+            {...register("sex", { required: true })}
+          />
+          <lable>Female</lable>
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <label
+            style={{ fontSize: "15px", fontWeight: "bold", color: "#1C315E" }}
+          >
+            Status
+          </label>
+          <br />
+          <input
+            type="radio"
+            name="active"
+            {...register("status", { required: true })}
+          />
+          <lable>Active</lable>
+          <input
+            type="radio"
+            name="inactive"
+            style={{ marginLeft: "30px" }}
+            {...register("status", { required: true })}
+          />
+          <lable>Inactive</lable>
+        </div>
+        <div>
+          <input
+            style={{
+              marginRight: "20px",
+              background: "#1C315E ",
+              border: "none",
+              color: "white",
+              padding: "5px 20px",
+              fontSize: "16px",
+            }}
+            type="reset"
+          />
+          <input
+            style={{
+              marginRight: "20px",
+              background: "#0097a7 ",
+              border: "none",
+              color: "white",
+              padding: "5px 20px",
+              fontSize: "16px",
+            }}
+            type="submit"
+          />
+        </div>
       </form>
     </Container>
   );
