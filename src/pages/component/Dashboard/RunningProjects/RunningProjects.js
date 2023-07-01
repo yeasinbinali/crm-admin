@@ -6,7 +6,7 @@ import LinearProgress, {
 import { Box } from "@mui/system";
 import { Tooltip, Typography } from "@mui/material";
 import AlbumIcon from "@mui/icons-material/Album";
-import { Button } from "@mui/base";
+import { Button} from "@mui/base";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 7,
@@ -17,7 +17,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? '#0097a7' : "#308fe8",
+    backgroundColor: theme.palette.mode === "light" ? "#0097a7" : "#308fe8",
   },
 }));
 
@@ -41,10 +41,12 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
+              <AlbumIcon sx={{ color: "#0097a7", marginRight: "5px" }} />
               Data Configuration
             </Typography>
-            <Button size="small">Failed</Button>
+            <Button size="small">
+              Failed
+            </Button>
           </Box>
           <Tooltip title="50%">
             <BorderLinearProgress
@@ -64,7 +66,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
+              <AlbumIcon sx={{ color: "#0097a7", marginRight: "5px" }} />
               Design Tool
             </Typography>
             <Button size="small">Progessing</Button>
@@ -87,7 +89,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
+              <AlbumIcon sx={{ color: "#0097a7", marginRight: "5px" }} />
               Internet Configuration
             </Typography>
             <Button size="small">Progressing</Button>
@@ -110,7 +112,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
+              <AlbumIcon sx={{ color: "#0097a7", marginRight: "5px" }} />
               Banner Completation
             </Typography>
             <Button size="small">Progressing</Button>
@@ -133,7 +135,7 @@ const RunningProjects = () => {
             }}
           >
             <Typography sx={{ display: "flex", alignItems: "center" }}>
-              <AlbumIcon sx={{color: '#0097a7', marginRight: '5px'}} />
+              <AlbumIcon sx={{ color: "#0097a7", marginRight: "5px" }} />
               IT Solution
             </Typography>
             <Button size="small">Success</Button>
