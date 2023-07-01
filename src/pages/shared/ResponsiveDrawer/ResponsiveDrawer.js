@@ -11,7 +11,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { Outlet } from "react-router";
-import { Link, ListItemButton, ListItemIcon } from "@mui/material";
+import { Link } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
@@ -22,10 +22,9 @@ import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import PersonIcon from "@mui/icons-material/Person";
 import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
-import StarBorder from "@mui/icons-material/StarBorder";
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const drawerWidth = 240;
 
@@ -63,25 +62,6 @@ function ResponsiveDrawer(props) {
           Dashboard
         </Link>
         <Link
-          href="/customer"
-          sx={{
-            textDecoration: "none",
-            fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
-            color: "black",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Typography sx={{ display: "flex", alignItems: "center" }}>
-            <GroupAddIcon sx={{ marginRight: "3px" }} />
-            Customers{" "}
-          </Typography>
-          <ArrowBackIosNewIcon sx={{ fontSize: "14px", marginRight: "5px" }} />
-        </Link>
-        <Link
           sx={{
             textDecoration: "none",
             fontSize: "18px",
@@ -98,7 +78,9 @@ function ResponsiveDrawer(props) {
             }}
             onClick={handleClick}
           >
-            <Typography sx={{ display: "flex", alignItems: "center", fontSize: '18px' }}>
+            <Typography
+              sx={{ display: "flex", alignItems: "center", fontSize: "18px" }}
+            >
               <GroupAddIcon sx={{ marginRight: "3px" }} />
               Customer
             </Typography>
@@ -111,14 +93,38 @@ function ResponsiveDrawer(props) {
             )}
           </Typography>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
-              </ListItemButton>
-            </List>
+            <Link
+              href="/addCustomer"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: '20px',
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Add Customer
+            </Link>
+            <Link
+              href="/customerList"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: '20px',
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              List
+            </Link>
           </Collapse>
         </Link>
         <Link
