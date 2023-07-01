@@ -32,20 +32,40 @@ const CustomerList = () => {
         Customer List
       </Typography>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+        <Table aria-label="simple table">
+          <TableHead sx={{ background: "#E3F4F4" }}>
             <TableRow>
-              <TableCell>Photo</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Mobile</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Status</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Photo</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Name</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Mobile</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Email</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Address</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Sex</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-              {/* hello */}
+            {customers.map((customer) => (
+              <TableRow key={customer._id}>
+                <img
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    marginLeft: "10px",
+                    marginTop: "4px",
+                    borderRadius: "50%",
+                  }}
+                  src={`${customer.image}`}
+                  alt=""
+                />
+                <TableCell>{customer.name}</TableCell>
+                <TableCell>{customer.mobile}</TableCell>
+                <TableCell>{customer.email}</TableCell>
+                <TableCell>{customer.address}</TableCell>
+                <TableCell>{customer.sex}</TableCell>
+                <TableCell>{customer.status}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
