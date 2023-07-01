@@ -1,6 +1,7 @@
-import { RouterProvider } from 'react-router';
-import './App.css';
-import { Router } from './route/Router/Router';
+import { Toaster } from "react-hot-toast";
+import { RouterProvider } from "react-router";
+import "./App.css";
+import { Router } from "./route/Router/Router";
 
 // #0097a7 -> Headline
 
@@ -10,7 +11,10 @@ import { Router } from './route/Router/Router';
 
 function App() {
   return (
-    <RouterProvider router={Router}></RouterProvider>
+    <>
+      <RouterProvider router={Router}></RouterProvider>
+      <Toaster />
+    </>
   );
 }
 

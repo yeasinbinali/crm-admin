@@ -3,15 +3,52 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Typography } from "@mui/material";
+import toast from "react-hot-toast";
 
 const AddCustomer = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   const imageHostKey = process.env.REACT_APP_imgbb_key;
   console.log(imageHostKey);
 
   const onSubmit = (data) => {
-    console.log(data);
+    const image = (data.image[0]);
+    const formData = new FormData();
+    formData.append('image', image);
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${process.env.REACT_APP_imgbb_key}`;
+
+    fetch(url, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(imgData => {
+      if(imgData.success){
+        const customerDetails = {
+          name: data.name,
+          email: data.email,
+          mobile: data.number,
+          image: imgData.data.url,
+          address: data.address,
+          sex: data.sex,
+          status: data.status
+        }
+        fetch('http://localhost:5000/customers', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(customerDetails)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.acknowledged){
+            toast.success(`Customer ${data.name}, added successfully!`);
+            reset();
+          }
+        })
+      }
+    })
   }
   return (
     <Container>
@@ -47,7 +84,7 @@ const AddCustomer = () => {
               borderRadius: "5px",
             }}
             placeholder="Enter Name"
-            {...register("name", { required: true, maxLength: 10 })}
+            {...register("name", { required: true })}
           />
         </div>
         <div style={{ marginBottom: "10px" }}>
@@ -88,6 +125,7 @@ const AddCustomer = () => {
             placeholder="Mobile Number"
             {...register("number", { required: true, maxLength: 11 })}
           />
+          {errors.number?.type === 'maxLength' && <p style={{color: 'red', margin: '0', fontSize: '14px'}} role="alert">Mobile number is not more than 11</p>}
         </div>
         <div style={{ marginBottom: "10px" }}>
           <label
@@ -158,12 +196,14 @@ const AddCustomer = () => {
           <input
             type="radio"
             name="male"
+            value="Male"
             {...register("sex", { required: true })}
           />
           <lable>Male</lable>
           <input
             type="radio"
             name="female"
+            value="Female"
             style={{ marginLeft: "30px" }}
             {...register("sex", { required: true })}
           />
@@ -179,12 +219,14 @@ const AddCustomer = () => {
           <input
             type="radio"
             name="active"
+            value="Active"
             {...register("status", { required: true })}
           />
           <lable>Active</lable>
           <input
             type="radio"
             name="inactive"
+            value="Inactive"
             style={{ marginLeft: "30px" }}
             {...register("status", { required: true })}
           />

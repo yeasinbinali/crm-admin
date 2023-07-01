@@ -12,50 +12,51 @@ import Transaction from "../../pages/component/Transaction/Transaction/Transacti
 import User from "../../pages/component/User/User/User";
 
 export const Router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        children: [
-            {
-                path: '/',
-                element: <Dashboard></Dashboard>
-            },
-            {
-                path: '/addCustomer',
-                element: <AddCustomer></AddCustomer>
-            },
-            {
-                path: '/customerList',
-                element: <CustomerList></CustomerList>
-            },
-            {
-                path: '/transaction',
-                element: <Transaction></Transaction>
-            },
-            {
-                path: '/sales',
-                element: <Sales></Sales>
-            },
-            {
-                path: '/attendance',
-                element: <Attendance></Attendance>
-            },
-            {
-                path: '/recruitment',
-                element: <Recruitment></Recruitment>
-            },
-            {
-                path: '/publicHoliday',
-                element: <PublicHoliday></PublicHoliday>
-            },
-            {
-                path: '/user',
-                element: <User></User>
-            },
-            {
-                path: '/department',
-                element: <Department></Department>
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/addCustomer",
+        element: <AddCustomer></AddCustomer>,
+      },
+      {
+        path: "/customerList",
+        element: <CustomerList></CustomerList>,
+        loader: () => fetch("http://localhost:5000/customers"),
+      },
+      {
+        path: "/transaction",
+        element: <Transaction></Transaction>,
+      },
+      {
+        path: "/sales",
+        element: <Sales></Sales>,
+      },
+      {
+        path: "/attendance",
+        element: <Attendance></Attendance>,
+      },
+      {
+        path: "/recruitment",
+        element: <Recruitment></Recruitment>,
+      },
+      {
+        path: "/publicHoliday",
+        element: <PublicHoliday></PublicHoliday>,
+      },
+      {
+        path: "/user",
+        element: <User></User>,
+      },
+      {
+        path: "/department",
+        element: <Department></Department>,
+      },
+    ],
+  },
+]);
