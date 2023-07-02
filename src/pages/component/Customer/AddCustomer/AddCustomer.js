@@ -4,52 +4,61 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Typography } from "@mui/material";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const AddCustomer = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const navigate = useNavigate();
 
   const imageHostKey = process.env.REACT_APP_imgbb_key;
-  console.log(imageHostKey);
 
   const onSubmit = (data) => {
-    const image = (data.image[0]);
+    const image = data.image[0];
     const formData = new FormData();
-    formData.append('image', image);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${process.env.REACT_APP_imgbb_key}`;
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
 
     fetch(url, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     })
-    .then(res => res.json())
-    .then(imgData => {
-      if(imgData.success){
-        const customerDetails = {
-          name: data.name,
-          email: data.email,
-          mobile: data.number,
-          image: imgData.data.url,
-          address: data.address,
-          sex: data.sex,
-          status: data.status
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const customerDetails = {
+            name: data.name,
+            email: data.email,
+            mobile: data.number,
+            image: imgData.data.url,
+            address: data.address,
+            sex: data.sex,
+            status: data.status,
+          };
+          fetch("http://localhost:5000/customers", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(customerDetails),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.acknowledged) {
+                toast.success(`New customer added successfully!`);
+                navigate('/customerList');
+                reset();
+              }
+            });
         }
-        fetch('http://localhost:5000/customers', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(customerDetails)
-        })
-        .then(res => res.json())
-        .then(data => {
-          if(data.acknowledged){
-            toast.success(`Customer ${data.name}, added successfully!`);
-            reset();
-          }
-        })
-      }
-    })
-  }
+      });
+  };
+
   return (
     <Container>
       <Typography
@@ -125,7 +134,14 @@ const AddCustomer = () => {
             placeholder="Mobile Number"
             {...register("number", { required: true, maxLength: 11 })}
           />
-          {errors.number?.type === 'maxLength' && <p style={{color: 'red', margin: '0', fontSize: '14px'}} role="alert">Mobile number is not more than 11</p>}
+          {errors.number?.type === "maxLength" && (
+            <p
+              style={{ color: "red", margin: "0", fontSize: "14px" }}
+              role="alert"
+            >
+              Mobile number is not more than 11
+            </p>
+          )}
         </div>
         <div style={{ marginBottom: "10px" }}>
           <label
@@ -236,11 +252,11 @@ const AddCustomer = () => {
           <input
             style={{
               marginRight: "20px",
-              background: "#1C315E ",
+              background: "#1C315E",
               border: "none",
               color: "white",
               padding: "5px 20px",
-              fontSize: "16px",
+              fontSize: "16px"
             }}
             type="reset"
           />
