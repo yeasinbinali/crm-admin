@@ -8,7 +8,9 @@ import Department from "../../pages/component/Department/Department/Department";
 import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment/Recruitment";
 import Sales from "../../pages/component/Sales/Sales/Sales";
-import Transaction from "../../pages/component/Transaction/Transaction/Transaction";
+import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
+import Expense from "../../pages/component/Transaction/Expense/Expense";
+import Transfer from "../../pages/component/Transaction/Transfer/Transfer";
 import User from "../../pages/component/User/User/User";
 
 export const Router = createBrowserRouter([
@@ -30,8 +32,16 @@ export const Router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/customers"),
       },
       {
-        path: "/transaction",
-        element: <Transaction></Transaction>,
+        path: '/deposit',
+        element: <Deposit></Deposit>
+      },
+      {
+        path: '/expense',
+        element: <Expense></Expense>
+      },
+      {
+        path: '/transfer',
+        element: <Transfer></Transfer>
       },
       {
         path: "/sales",

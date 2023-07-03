@@ -14,7 +14,6 @@ import { Outlet } from "react-router";
 import { Link } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
@@ -24,7 +23,8 @@ import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 const drawerWidth = 240;
 
@@ -36,10 +36,14 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const [open, setOpen] = React.useState(true);
+  const [openCustomer, setOpenCustomer] = React.useState(false);
+  const [openTranaction, setOpenTransaction] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleCustomerClick = () => {
+    setOpenCustomer(!openCustomer);
+  };
+  const handleTransactionClick = () => {
+    setOpenTransaction(!openTranaction);
   };
 
   const drawer = (
@@ -76,7 +80,7 @@ function ResponsiveDrawer(props) {
               justifyContent: "space-between",
               alignItems: "center",
             }}
-            onClick={handleClick}
+            onClick={handleCustomerClick}
           >
             <Typography
               sx={{ display: "flex", alignItems: "center", fontSize: "18px" }}
@@ -84,7 +88,7 @@ function ResponsiveDrawer(props) {
               <GroupAddIcon sx={{ marginRight: "3px" }} />
               Customer
             </Typography>
-            {open ? (
+            {openCustomer ? (
               <ExpandLess />
             ) : (
               <ArrowBackIosNewIcon
@@ -92,12 +96,12 @@ function ResponsiveDrawer(props) {
               />
             )}
           </Typography>
-          <Collapse in={open} timeout="auto" unmountOnExit>
+          <Collapse in={openCustomer} timeout="auto" unmountOnExit>
             <Link
               href="/addCustomer"
               sx={{
                 textDecoration: "none",
-                paddingLeft: '20px',
+                paddingLeft: "20px",
                 fontSize: "18px",
                 marginLeft: "20px",
                 marginBottom: "10px",
@@ -113,7 +117,7 @@ function ResponsiveDrawer(props) {
               href="/customerList"
               sx={{
                 textDecoration: "none",
-                paddingLeft: '20px',
+                paddingLeft: "20px",
                 fontSize: "18px",
                 marginLeft: "20px",
                 marginBottom: "10px",
@@ -128,19 +132,86 @@ function ResponsiveDrawer(props) {
           </Collapse>
         </Link>
         <Link
-          href="/transaction"
           sx={{
             textDecoration: "none",
             fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
             color: "black",
-            display: "flex",
-            alignItems: "center",
           }}
         >
-          <AccountBalanceWalletIcon sx={{ marginRight: "3px" }} />
-          Transaction
+          <Typography
+            sx={{
+              display: "flex",
+              marginLeft: "20px",
+              marginBottom: "10px",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            onClick={handleTransactionClick}
+          >
+            <Typography
+              sx={{ display: "flex", alignItems: "center", fontSize: "18px" }}
+            >
+              <AccountBalanceIcon sx={{ marginRight: "3px" }} />
+              Transaction
+            </Typography>
+            {openTranaction ? (
+              <ExpandLess />
+            ) : (
+              <ArrowBackIosNewIcon
+                sx={{ fontSize: "14px", marginRight: "5px" }}
+              />
+            )}
+          </Typography>
+          <Collapse in={openTranaction} timeout="auto" unmountOnExit>
+            <Link
+              href="/deposit"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Deposit
+            </Link>
+            <Link
+              href="/expense"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Expense
+            </Link>
+            <Link
+              href="/transfer"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Transfer
+            </Link>
+          </Collapse>
         </Link>
         <Link
           href="/sales"
