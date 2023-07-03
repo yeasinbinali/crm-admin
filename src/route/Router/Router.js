@@ -38,7 +38,8 @@ export const Router = createBrowserRouter([
       },
       {
         path: '/expense',
-        element: <Expense></Expense>
+        element: <Expense></Expense>,
+        loader: () => fetch("http://localhost:5000/expense")
       },
       {
         path: '/transfer',

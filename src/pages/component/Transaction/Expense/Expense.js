@@ -11,6 +11,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import toast from "react-hot-toast";
+import { useLoaderData } from "react-router";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -32,12 +34,36 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Expense = () => {
+  const expenses = useLoaderData();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const expenseDetails = {
+      account: data.account,
+      date: data.date,
+      description: data.description,
+      amount: data.amount
+    }
+    fetch('http://localhost:5000/expense', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(expenseDetails)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.acknowledged){
+        toast.success("New expense added!");
+        reset();
+        window.location.reload(false);
+      }
+    })
+  };
   return (
     <Container>
       <Typography
@@ -221,18 +247,20 @@ const Expense = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Date</StyledTableCell>
-                  <StyledTableCell align="right">Description</StyledTableCell>
-                  <StyledTableCell align="right">Amount</StyledTableCell>
+                  <StyledTableCell>Account</StyledTableCell>
+                  <StyledTableCell>Description</StyledTableCell>
+                  <StyledTableCell>Amount</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {/* {rows.map((row) => (
-                  <StyledTableRow key={row.name}>
-                    <StyledTableCell>{row.name}</StyledTableCell>
-                    <StyledTableCell>{row.calories}</StyledTableCell>
-                    <StyledTableCell>{row.fat}</StyledTableCell>
+                {expenses.map((expense) => (
+                  <StyledTableRow key={expense._id}>
+                    <StyledTableCell>{expense.date}</StyledTableCell>
+                    <StyledTableCell>{expense.account}</StyledTableCell>
+                    <StyledTableCell>{expense.description}</StyledTableCell>
+                    <StyledTableCell>${expense.amount}</StyledTableCell>
                   </StyledTableRow>
-                ))} */}
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
