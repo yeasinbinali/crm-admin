@@ -251,6 +251,7 @@ const AddCustomer = () => {
         <div>
           <input
             style={{
+              cursor: "pointer",
               marginRight: "20px",
               background: "#1C315E",
               border: "none",
@@ -262,6 +263,7 @@ const AddCustomer = () => {
           />
           <input
             style={{
+              cursor: "pointer",
               marginRight: "20px",
               background: "#0097a7 ",
               border: "none",

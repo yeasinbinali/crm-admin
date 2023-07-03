@@ -11,6 +11,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import toast from "react-hot-toast";
+import { useLoaderData } from "react-router";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -32,12 +34,37 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Transfer = () => {
+  const transfers = useLoaderData();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const transferDetails = {
+      account: data.to,
+      date: data.date,
+      description: data.description,
+      amount: data.amount,
+      tag: data.tag.toUpperCase(),
+    };
+    fetch("http://localhost:5000/transfer", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(transferDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("New transfer added!");
+          reset();
+          window.location.reload(false);
+        }
+      });
+  };
   return (
     <Container>
       <Typography
@@ -226,9 +253,17 @@ const Transfer = () => {
                     border: "1px dotted #0097a7",
                     borderRadius: "5px",
                   }}
-                  placeholder="Enter tag"
-                  {...register("tag", { required: true })}
+                  placeholder="Enter tag (Max 3)"
+                  {...register("tag", { required: true, maxLength: 3 })}
                 />
+                {errors.tag?.type === "maxLength" && (
+                  <p
+                    style={{ color: "red", margin: "0", fontSize: "14px" }}
+                    role="alert"
+                  >
+                    Max length 3
+                  </p>
+                )}
               </div>
               <div>
                 <input
@@ -271,18 +306,22 @@ const Transfer = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Date</StyledTableCell>
-                  <StyledTableCell align="right">Description</StyledTableCell>
-                  <StyledTableCell align="right">Amount</StyledTableCell>
+                  <StyledTableCell>Account</StyledTableCell>
+                  <StyledTableCell>Description</StyledTableCell>
+                  <StyledTableCell>Amount</StyledTableCell>
+                  <StyledTableCell>Tags</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {/* {rows.map((row) => (
-                  <StyledTableRow key={row.name}>
-                    <StyledTableCell>{row.name}</StyledTableCell>
-                    <StyledTableCell>{row.calories}</StyledTableCell>
-                    <StyledTableCell>{row.fat}</StyledTableCell>
+                {transfers.map((transfer) => (
+                  <StyledTableRow key={transfer._id}>
+                    <StyledTableCell>{transfer.date}</StyledTableCell>
+                    <StyledTableCell>{transfer.account}</StyledTableCell>
+                    <StyledTableCell>{transfer.description}</StyledTableCell>
+                    <StyledTableCell>${transfer.amount}</StyledTableCell>
+                    <StyledTableCell>{transfer.tag}</StyledTableCell>
                   </StyledTableRow>
-                ))} */}
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
