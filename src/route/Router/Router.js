@@ -33,7 +33,8 @@ export const Router = createBrowserRouter([
       },
       {
         path: '/deposit',
-        element: <Deposit></Deposit>
+        element: <Deposit></Deposit>,
+        loader: () => fetch("http://localhost:5000/deposit")
       },
       {
         path: '/expense',
