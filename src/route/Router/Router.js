@@ -7,7 +7,9 @@ import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import Department from "../../pages/component/Department/Department/Department";
 import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment/Recruitment";
-import Sales from "../../pages/component/Sales/Sales/Sales";
+import Invoice from "../../pages/component/Sales/Invoice/Invoice";
+import Payment from "../../pages/component/Sales/Payment/Payment";
+import Quote from "../../pages/component/Sales/Quote/Quote";
 import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
 import Expense from "../../pages/component/Transaction/Expense/Expense";
 import Transfer from "../../pages/component/Transaction/Transfer/Transfer";
@@ -47,8 +49,16 @@ export const Router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/transfer")
       },
       {
-        path: "/sales",
-        element: <Sales></Sales>,
+        path: '/invoice',
+        element: <Invoice></Invoice>
+      },
+      {
+        path: '/quote',
+        element: <Quote></Quote>
+      },
+      {
+        path: '/payment',
+        element: <Payment></Payment>
       },
       {
         path: "/attendance",

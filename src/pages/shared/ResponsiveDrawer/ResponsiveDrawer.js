@@ -38,6 +38,7 @@ function ResponsiveDrawer(props) {
 
   const [openCustomer, setOpenCustomer] = React.useState(false);
   const [openTranaction, setOpenTransaction] = React.useState(false);
+  const [openSales, setOpenSales] = React.useState(false);
 
   const handleCustomerClick = () => {
     setOpenCustomer(!openCustomer);
@@ -45,11 +46,15 @@ function ResponsiveDrawer(props) {
   const handleTransactionClick = () => {
     setOpenTransaction(!openTranaction);
   };
+  const handleSalesClick = () => {
+    setOpenSales(!openSales);
+  }
 
   const drawer = (
     <div>
       <Divider />
       <List sx={{ display: "grid", gridColumn: "auto" }}>
+        {/* dashboard */}
         <Link
           href="/"
           sx={{
@@ -65,6 +70,7 @@ function ResponsiveDrawer(props) {
           <DashboardIcon sx={{ marginRight: "3px" }} />
           Dashboard
         </Link>
+        {/* customer */}
         <Link
           sx={{
             textDecoration: "none",
@@ -131,6 +137,7 @@ function ResponsiveDrawer(props) {
             </Link>
           </Collapse>
         </Link>
+        {/* transaction */}
         <Link
           sx={{
             textDecoration: "none",
@@ -213,20 +220,88 @@ function ResponsiveDrawer(props) {
             </Link>
           </Collapse>
         </Link>
+        {/* sales */}
         <Link
-          href="/sales"
           sx={{
             textDecoration: "none",
             fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
             color: "black",
-            display: "flex",
-            alignItems: "center",
           }}
         >
-          <AttachMoneyIcon sx={{ marginRight: "3px" }} />
-          Sales
+          <Typography
+            sx={{
+              display: "flex",
+              marginLeft: "20px",
+              marginBottom: "10px",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            onClick={handleSalesClick}
+          >
+            <Typography
+              sx={{ display: "flex", alignItems: "center", fontSize: "18px" }}
+            >
+              <AttachMoneyIcon sx={{ marginRight: "3px" }} />
+              Sales
+            </Typography>
+            {openSales ? (
+              <ExpandLess />
+            ) : (
+              <ArrowBackIosNewIcon
+                sx={{ fontSize: "14px", marginRight: "5px" }}
+              />
+            )}
+          </Typography>
+          <Collapse in={openSales} timeout="auto" unmountOnExit>
+            <Link
+              href="/invoice"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Invoice
+            </Link>
+            <Link
+              href="/quote"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Quote
+            </Link>
+            <Link
+              href="/payment"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Payment
+            </Link>
+          </Collapse>
         </Link>
         <Link
           href="attendance"
