@@ -50,7 +50,8 @@ export const Router = createBrowserRouter([
       },
       {
         path: '/invoice',
-        element: <Invoice></Invoice>
+        element: <Invoice></Invoice>,
+        loader: () => fetch("http://localhost:5000/invoice")
       },
       {
         path: '/quote',

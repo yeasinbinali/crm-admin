@@ -13,6 +13,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useLoaderData } from "react-router";
 
 const style = {
   position: "absolute",
@@ -30,14 +32,40 @@ const Invoice = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset,
   } = useForm();
+
+  const invoices = useLoaderData();
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const invoiceDetails = {
+      name: data.name,
+      amount: data.amount,
+      invoice: data.invoice,
+      due: data.due,
+      type: data.type,
+    };
+    fetch("http://localhost:5000/invoice", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(invoiceDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("New invoice added!");
+          reset();
+          window.location.reload(false);
+        }
+      });
+  };
 
   return (
     <Container>
@@ -242,20 +270,18 @@ const Invoice = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))} */}
+            {invoices.map((invoice) => (
+              <TableRow
+                key={invoice._id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell>{invoice.name}</TableCell>
+                <TableCell>${invoice.amount}</TableCell>
+                <TableCell>{invoice.invoice}</TableCell>
+                <TableCell>{invoice.due}</TableCell>
+                <TableCell>{invoice.type}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
