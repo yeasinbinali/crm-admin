@@ -23,7 +23,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
@@ -260,13 +259,13 @@ const Invoice = () => {
       </div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{backgroundColor: '#E3F4F4'}}>
             <TableRow>
-              <TableCell>Account</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Invoice Date</TableCell>
-              <TableCell>Due Date</TableCell>
-              <TableCell>Type</TableCell>
+              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Account</TableCell>
+              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Amount</TableCell>
+              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Invoice Date</TableCell>
+              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Due Date</TableCell>
+              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Type</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

@@ -246,10 +246,42 @@ const Deposit = () => {
             <Table aria-label="customized table">
               <TableHead>
                 <TableRow>
-                  <StyledTableCell>Date</StyledTableCell>
-                  <StyledTableCell>Account</StyledTableCell>
-                  <StyledTableCell>Description</StyledTableCell>
-                  <StyledTableCell>Amount</StyledTableCell>
+                  <TableCell
+                    sx={{
+                      color: "#1C315E",
+                      fontWeight: "700",
+                      fontSize: "15px",
+                    }}
+                  >
+                    Date
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "#1C315E",
+                      fontWeight: "700",
+                      fontSize: "15px",
+                    }}
+                  >
+                    Account
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "#1C315E",
+                      fontWeight: "700",
+                      fontSize: "15px",
+                    }}
+                  >
+                    Description
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "#1C315E",
+                      fontWeight: "700",
+                      fontSize: "15px",
+                    }}
+                  >
+                    Amount
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
