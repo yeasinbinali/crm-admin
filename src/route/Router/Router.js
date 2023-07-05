@@ -10,6 +10,7 @@ import Recruitment from "../../pages/component/Recruitment/Recruitment/Recruitme
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
 import Payment from "../../pages/component/Sales/Payment/Payment";
 import Quote from "../../pages/component/Sales/Quote/Quote";
+import QuoteUpdate from "../../pages/component/Sales/Quote/QuoteUpdate";
 import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
 import Expense from "../../pages/component/Transaction/Expense/Expense";
 import Transfer from "../../pages/component/Transaction/Transfer/Transfer";
@@ -55,7 +56,15 @@ export const Router = createBrowserRouter([
       },
       {
         path: '/quote',
-        element: <Quote></Quote>
+        element: <Quote></Quote>,
+        loader: () => fetch("http://localhost:5000/quote")
+      },
+      {
+        path: '/quote/:id',
+        element: <QuoteUpdate></QuoteUpdate>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/quote/${params.id}`)
+        }
       },
       {
         path: '/payment',

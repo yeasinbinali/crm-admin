@@ -54,7 +54,7 @@ const Invoice = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(invoiceDetails),
+      body: JSON.stringify(invoiceDetails)
     })
       .then((res) => res.json())
       .then((data) => {
