@@ -9,6 +9,7 @@ import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/Pub
 import Recruitment from "../../pages/component/Recruitment/Recruitment/Recruitment";
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
 import Payment from "../../pages/component/Sales/Payment/Payment";
+import PaymentUpdate from "../../pages/component/Sales/Payment/PaymentUpdate";
 import Quote from "../../pages/component/Sales/Quote/Quote";
 import QuoteUpdate from "../../pages/component/Sales/Quote/QuoteUpdate";
 import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
@@ -68,7 +69,15 @@ export const Router = createBrowserRouter([
       },
       {
         path: '/payment',
-        element: <Payment></Payment>
+        element: <Payment></Payment>,
+        loader: () => fetch("http://localhost:5000/payment")
+      },
+      {
+        path: '/payment/:id',
+        element: <PaymentUpdate></PaymentUpdate>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/payment/${params.id}`)
+        }
       },
       {
         path: "/attendance",

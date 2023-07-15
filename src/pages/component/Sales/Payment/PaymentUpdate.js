@@ -6,35 +6,34 @@ import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 
-const QuoteUpdate = () => {
+const PaymentUpdate = () => {
+  const storedPayment = useLoaderData();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const storedQuote = useLoaderData();
 
   const onSubmit = (data) => {
-    const quoteDetails = {
-      name: data.name,
-      subject: data.subject,
+    const paymentDetails = {
+      invoice: data.invoice,
+      date: data.date,
+      account: data.account,
       amount: data.amount,
-      entry: data.entry,
-      expired: data.expired,
     };
-    fetch(`http://localhost:5000/quote/${storedQuote._id}`, {
+    fetch(`http://localhost:5000/payment/${storedPayment._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(quoteDetails),
+      body: JSON.stringify(paymentDetails),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          toast.success("Quote updated successfully!");
-          navigate("/quote");
+          toast.success("Payment updated successfully!");
+          navigate("/payment");
         }
       });
   };
@@ -53,7 +52,7 @@ const QuoteUpdate = () => {
         variant="h5"
       >
         <AttachMoneyIcon sx={{ marginRight: "3px" }} />
-        Update Quote
+        Update Payment
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ marginBottom: "10px" }}>
@@ -64,26 +63,26 @@ const QuoteUpdate = () => {
               color: "#1C315E",
             }}
           >
-            Name
+            Invoice No.
           </label>
           <br />
           <input
-            name="name"
+            name="invoice"
             style={{
-              width: "60%",
+              width: "80%",
               padding: "5px",
               border: "1px dotted #0097a7",
               borderRadius: "5px",
             }}
-            placeholder="Enter Name"
-            {...register("name", { required: true, maxLength: 8 })}
+            placeholder="Enter Invoice No"
+            {...register("invoice", { required: true, maxLength: 3 })}
           />
-          {errors.name?.type === "maxLength" && (
+          {errors.invoice?.type === "maxLength" && (
             <p
               style={{ color: "red", margin: "0", fontSize: "14px" }}
               role="alert"
             >
-              Max length 8
+              Max length 3
             </p>
           )}
         </div>
@@ -95,23 +94,45 @@ const QuoteUpdate = () => {
               color: "#1C315E",
             }}
           >
-            Subject
+            Date
           </label>
           <br />
-          <select
+          <input
+            name="date"
+            type="date"
             style={{
-              width: "60%",
+              width: "80%",
               padding: "5px",
               border: "1px dotted #0097a7",
               borderRadius: "5px",
             }}
-            {...register("subject")}
+            placeholder="Enter Date"
+            {...register("date", { required: true })}
+          />
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <label
+            style={{
+              fontSize: "15px",
+              fontWeight: "bold",
+              color: "#1C315E",
+            }}
           >
-            <option value="Technology">Technology</option>
-            <option value="Business">Business</option>
-            <option value="Networking">Networking</option>
-            <option value="Marketing">Marketing</option>
-          </select>
+            Account
+          </label>
+          <br />
+          <input
+            type="text"
+            name="account"
+            style={{
+              width: "80%",
+              padding: "5px",
+              border: "1px dotted #0097a7",
+              borderRadius: "5px",
+            }}
+            placeholder="Enter Account Name"
+            {...register("account", { required: true })}
+          />
         </div>
         <div style={{ marginBottom: "10px" }}>
           <label
@@ -125,60 +146,15 @@ const QuoteUpdate = () => {
           </label>
           <br />
           <input
+            placeholder="$ Enter Amount"
             name="amount"
-            type="number"
             style={{
-              width: "60%",
+              width: "80%",
               padding: "5px",
               border: "1px dotted #0097a7",
               borderRadius: "5px",
             }}
-            placeholder="$Enter amount"
             {...register("amount", { required: true })}
-          />
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label
-            style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "#1C315E",
-            }}
-          >
-            Entry Date
-          </label>
-          <br />
-          <input
-            type="date"
-            style={{
-              width: "60%",
-              padding: "5px",
-              border: "1px dotted #0097a7",
-              borderRadius: "5px",
-            }}
-            {...register("entry", { required: true })}
-          />
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label
-            style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "#1C315E",
-            }}
-          >
-            Expired Date
-          </label>
-          <br />
-          <input
-            type="date"
-            style={{
-              width: "60%",
-              padding: "5px",
-              border: "1px dotted #0097a7",
-              borderRadius: "5px",
-            }}
-            {...register("expired", { required: true })}
           />
         </div>
         <div>
@@ -212,4 +188,4 @@ const QuoteUpdate = () => {
   );
 };
 
-export default QuoteUpdate;
+export default PaymentUpdate;
