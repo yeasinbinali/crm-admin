@@ -304,7 +304,7 @@ function ResponsiveDrawer(props) {
           </Collapse>
         </Link>
         <Link
-          href="attendance"
+          href="noticeBoard"
           sx={{
             textDecoration: "none",
             fontSize: "18px",
@@ -316,7 +316,7 @@ function ResponsiveDrawer(props) {
           }}
         >
           <AddToPhotosIcon sx={{ marginRight: "3px" }} />
-          Attendance
+          Notice Board
         </Link>
         <Link
           href="recruitment"

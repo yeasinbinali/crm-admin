@@ -253,7 +253,7 @@ const Expense = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {expenses.map((expense) => (
+                {expenses.slice(0).reverse().map((expense) => (
                   <StyledTableRow key={expense._id}>
                     <StyledTableCell>{expense.date}</StyledTableCell>
                     <StyledTableCell>{expense.account}</StyledTableCell>

@@ -38,7 +38,7 @@ const CustomerList = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {customers.map((customer) => (
+            {customers.slice(0).reverse().map((customer) => (
               <TableRow key={customer._id}>
                 <img
                   style={{

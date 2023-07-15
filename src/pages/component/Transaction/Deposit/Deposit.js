@@ -285,7 +285,7 @@ const Deposit = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {deposits.map((deposit) => (
+                {deposits.slice(0).reverse().map((deposit) => (
                   <StyledTableRow key={deposit._id}>
                     <StyledTableCell>{deposit.date}</StyledTableCell>
                     <StyledTableCell>{deposit.account}</StyledTableCell>

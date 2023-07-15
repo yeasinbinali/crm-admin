@@ -299,7 +299,7 @@ const Quote = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {quotes.map((quote) => (
+            {quotes.slice(0).reverse().map((quote) => (
               <TableRow
                 key={quote._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

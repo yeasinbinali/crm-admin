@@ -313,7 +313,7 @@ const Transfer = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {transfers.map((transfer) => (
+                {transfers.slice(0).reverse().map((transfer) => (
                   <StyledTableRow key={transfer._id}>
                     <StyledTableCell>{transfer.date}</StyledTableCell>
                     <StyledTableCell>{transfer.account}</StyledTableCell>

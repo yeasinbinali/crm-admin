@@ -269,7 +269,7 @@ const Invoice = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {invoices.map((invoice) => (
+            {invoices.slice(0).reverse().map((invoice) => (
               <TableRow
                 key={invoice._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

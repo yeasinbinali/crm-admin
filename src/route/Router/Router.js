@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
-import Attendance from "../../pages/component/Attendance/Attendance/Attendance";
 import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer";
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
 import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import Department from "../../pages/component/Department/Department/Department";
+import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment/Recruitment";
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
@@ -80,8 +80,8 @@ export const Router = createBrowserRouter([
         }
       },
       {
-        path: "/attendance",
-        element: <Attendance></Attendance>,
+        path: "/noticeBoard",
+        element: <NoticeBoard></NoticeBoard>,
       },
       {
         path: "/recruitment",
