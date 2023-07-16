@@ -304,7 +304,7 @@ function ResponsiveDrawer(props) {
           </Collapse>
         </Link>
         <Link
-          href="noticeBoard"
+          href="notice"
           sx={{
             textDecoration: "none",
             fontSize: "18px",

@@ -5,6 +5,7 @@ import CustomerList from "../../pages/component/Customer/CustomerList/CustomerLi
 import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import Department from "../../pages/component/Department/Department/Department";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
+import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
 import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment/Recruitment";
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
@@ -36,52 +37,60 @@ export const Router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/customers"),
       },
       {
-        path: '/deposit',
+        path: "/deposit",
         element: <Deposit></Deposit>,
-        loader: () => fetch("http://localhost:5000/deposit")
+        loader: () => fetch("http://localhost:5000/deposit"),
       },
       {
-        path: '/expense',
+        path: "/expense",
         element: <Expense></Expense>,
-        loader: () => fetch("http://localhost:5000/expense")
+        loader: () => fetch("http://localhost:5000/expense"),
       },
       {
-        path: '/transfer',
+        path: "/transfer",
         element: <Transfer></Transfer>,
-        loader: () => fetch("http://localhost:5000/transfer")
+        loader: () => fetch("http://localhost:5000/transfer"),
       },
       {
-        path: '/invoice',
+        path: "/invoice",
         element: <Invoice></Invoice>,
-        loader: () => fetch("http://localhost:5000/invoice")
+        loader: () => fetch("http://localhost:5000/invoice"),
       },
       {
-        path: '/quote',
+        path: "/quote",
         element: <Quote></Quote>,
-        loader: () => fetch("http://localhost:5000/quote")
+        loader: () => fetch("http://localhost:5000/quote"),
       },
       {
-        path: '/quote/:id',
+        path: "/quote/:id",
         element: <QuoteUpdate></QuoteUpdate>,
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/quote/${params.id}`)
-        }
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/quote/${params.id}`);
+        },
       },
       {
-        path: '/payment',
+        path: "/payment",
         element: <Payment></Payment>,
-        loader: () => fetch("http://localhost:5000/payment")
+        loader: () => fetch("http://localhost:5000/payment"),
       },
       {
-        path: '/payment/:id',
+        path: "/payment/:id",
         element: <PaymentUpdate></PaymentUpdate>,
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/payment/${params.id}`)
-        }
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/payment/${params.id}`);
+        },
       },
       {
-        path: "/noticeBoard",
+        path: "/notice",
         element: <NoticeBoard></NoticeBoard>,
+        loader: () => fetch("http://localhost:5000/notice"),
+      },
+      {
+        path: "/notice/:id",
+        element: <NoticeBoardUpdate></NoticeBoardUpdate>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/notice/${params.id}`);
+        },
       },
       {
         path: "/recruitment",
