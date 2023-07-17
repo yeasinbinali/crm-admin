@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const NoticeBoardUpdate = () => {
   const storedNotice = useLoaderData();
@@ -54,6 +56,14 @@ const NoticeBoardUpdate = () => {
         <AddToPhotosIcon sx={{ marginRight: "3px" }} />
         Update Notice
       </Typography>
+      <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
+        <Link
+          to="/notice"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          Back
+        </Link>
+      </Button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ marginBottom: "10px" }}>
           <label

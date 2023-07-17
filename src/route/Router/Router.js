@@ -8,6 +8,7 @@ import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
 import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
+import RecruitmentUpdate from "../../pages/component/Recruitment/RecruitmentUpdate";
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
 import Payment from "../../pages/component/Sales/Payment/Payment";
 import PaymentUpdate from "../../pages/component/Sales/Payment/PaymentUpdate";
@@ -96,6 +97,13 @@ export const Router = createBrowserRouter([
         path: "/recruitment",
         element: <Recruitment></Recruitment>,
         loader: () => fetch("http://localhost:5000/recruitment")
+      },
+      {
+        path: '/recruitment/:id',
+        element: <RecruitmentUpdate></RecruitmentUpdate>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/recruitment/${params.id}`)
+        }
       },
       {
         path: "/publicHoliday",

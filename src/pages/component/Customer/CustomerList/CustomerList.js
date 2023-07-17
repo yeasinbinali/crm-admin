@@ -28,13 +28,13 @@ const CustomerList = () => {
         <Table aria-label="simple table">
           <TableHead sx={{ background: "#E3F4F4" }}>
             <TableRow>
-              <TableCell sx={{ fontWeight: "600" }}>Photo</TableCell>
-              <TableCell sx={{ fontWeight: "600" }}>Name</TableCell>
-              <TableCell sx={{ fontWeight: "600" }}>Mobile</TableCell>
-              <TableCell sx={{ fontWeight: "600" }}>Email</TableCell>
-              <TableCell sx={{ fontWeight: "600" }}>Address</TableCell>
-              <TableCell sx={{ fontWeight: "600" }}>Sex</TableCell>
-              <TableCell sx={{ fontWeight: "600" }}>Status</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Photo</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Name</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Mobile</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Email</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Address</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Sex</TableCell>
+              <TableCell sx={{ fontWeight: "600", color: '#1C315E' }}>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

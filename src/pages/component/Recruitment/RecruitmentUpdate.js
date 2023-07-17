@@ -1,42 +1,42 @@
 import { Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import AutoModeIcon from "@mui/icons-material/AutoMode";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
-import toast from "react-hot-toast";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-const QuoteUpdate = () => {
+const RecruitmentUpdate = () => {
+  const storedRecruitment = useLoaderData();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-  const storedQuote = useLoaderData();
 
   const onSubmit = (data) => {
-    const quoteDetails = {
-      name: data.name,
-      subject: data.subject,
-      amount: data.amount,
-      entry: data.entry,
-      expired: data.expired,
+    const recruitmentDetails = {
+      title: data.title,
+      designation: data.designation,
+      vacancy: data.vacancy,
+      lastDate: data.lastDate,
+      status: data.status,
     };
-    fetch(`http://localhost:5000/quote/${storedQuote._id}`, {
+    fetch(`http://localhost:5000/recruitment/${storedRecruitment._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(quoteDetails),
+      body: JSON.stringify(recruitmentDetails),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          toast.success("Quote updated successfully!");
-          navigate("/quote");
+          reset();
+          navigate("/recruitment");
         }
       });
   };
@@ -54,16 +54,11 @@ const QuoteUpdate = () => {
         }}
         variant="h5"
       >
-        <AttachMoneyIcon sx={{ marginRight: "3px" }} />
-        Update Quote
+        <AutoModeIcon sx={{ marginRight: "3px" }} />
+        Recruitment Update
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link
-          to="/quote"
-          style={{ textDecoration: "none", color: "white" }}
-        >
-          Back
-        </Link>
+        <Link to='/recruitment' style={{textDecoration: 'none', color: 'white'}}>Back</Link>
       </Button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ marginBottom: "10px" }}>
@@ -74,26 +69,26 @@ const QuoteUpdate = () => {
               color: "#1C315E",
             }}
           >
-            Name
+            Job Title
           </label>
           <br />
           <input
-            name="name"
+            name="title"
             style={{
-              width: "60%",
+              width: "80%",
               padding: "5px",
               border: "1px dotted #0097a7",
               borderRadius: "5px",
             }}
-            placeholder="Enter Name"
-            {...register("name", { required: true, maxLength: 8 })}
+            placeholder="Enter Job Title"
+            {...register("title", { required: true, maxLength: 20 })}
           />
-          {errors.name?.type === "maxLength" && (
+          {errors.title?.type === "maxLength" && (
             <p
               style={{ color: "red", margin: "0", fontSize: "14px" }}
               role="alert"
             >
-              Max length 8
+              Max length 20
             </p>
           )}
         </div>
@@ -105,91 +100,93 @@ const QuoteUpdate = () => {
               color: "#1C315E",
             }}
           >
-            Subject
+            Designation
+          </label>
+          <br />
+          <input
+            name="designation"
+            style={{
+              width: "80%",
+              padding: "5px",
+              border: "1px dotted #0097a7",
+              borderRadius: "5px",
+            }}
+            placeholder="Enter Designation"
+            {...register("designation", { required: true })}
+          />
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <label
+            style={{
+              fontSize: "15px",
+              fontWeight: "bold",
+              color: "#1C315E",
+            }}
+          >
+            Vacancy
+          </label>
+          <br />
+          <input
+            name="vacancy"
+            type="number"
+            style={{
+              width: "80%",
+              padding: "5px",
+              border: "1px dotted #0097a7",
+              borderRadius: "5px",
+            }}
+            placeholder="Enter Vacancy"
+            {...register("vacancy", {
+              required: true,
+            })}
+          />
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <label
+            style={{
+              fontSize: "15px",
+              fontWeight: "bold",
+              color: "#1C315E",
+            }}
+          >
+            Last Date
+          </label>
+          <br />
+          <input
+            type="date"
+            style={{
+              width: "80%",
+              padding: "5px",
+              border: "1px dotted #0097a7",
+              borderRadius: "5px",
+            }}
+            {...register("lastDate", { required: true })}
+          />
+        </div>
+        <div style={{ marginBottom: "10px" }}>
+          <label
+            style={{
+              fontSize: "15px",
+              fontWeight: "bold",
+              color: "#1C315E",
+            }}
+          >
+            Status
           </label>
           <br />
           <select
             style={{
-              width: "60%",
+              width: "80%",
               padding: "5px",
               border: "1px dotted #0097a7",
               borderRadius: "5px",
             }}
-            {...register("subject")}
+            {...register("status")}
           >
-            <option value="Technology">Technology</option>
-            <option value="Business">Business</option>
-            <option value="Networking">Networking</option>
-            <option value="Marketing">Marketing</option>
+            <option value="Managed">Managed</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
           </select>
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label
-            style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "#1C315E",
-            }}
-          >
-            Amount
-          </label>
-          <br />
-          <input
-            name="amount"
-            type="number"
-            style={{
-              width: "60%",
-              padding: "5px",
-              border: "1px dotted #0097a7",
-              borderRadius: "5px",
-            }}
-            placeholder="$Enter amount"
-            {...register("amount", { required: true })}
-          />
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label
-            style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "#1C315E",
-            }}
-          >
-            Entry Date
-          </label>
-          <br />
-          <input
-            type="date"
-            style={{
-              width: "60%",
-              padding: "5px",
-              border: "1px dotted #0097a7",
-              borderRadius: "5px",
-            }}
-            {...register("entry", { required: true })}
-          />
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label
-            style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "#1C315E",
-            }}
-          >
-            Expired Date
-          </label>
-          <br />
-          <input
-            type="date"
-            style={{
-              width: "60%",
-              padding: "5px",
-              border: "1px dotted #0097a7",
-              borderRadius: "5px",
-            }}
-            {...register("expired", { required: true })}
-          />
         </div>
         <div>
           <input
@@ -222,4 +219,4 @@ const QuoteUpdate = () => {
   );
 };
 
-export default QuoteUpdate;
+export default RecruitmentUpdate;

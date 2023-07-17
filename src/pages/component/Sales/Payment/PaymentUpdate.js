@@ -5,6 +5,8 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const PaymentUpdate = () => {
   const storedPayment = useLoaderData();
@@ -54,6 +56,14 @@ const PaymentUpdate = () => {
         <AttachMoneyIcon sx={{ marginRight: "3px" }} />
         Update Payment
       </Typography>
+      <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
+        <Link
+          to="/payment"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          Back
+        </Link>
+      </Button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ marginBottom: "10px" }}>
           <label
