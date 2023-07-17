@@ -17,7 +17,7 @@ import { useLoaderData } from "react-router";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
-import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
+import AutoModeIcon from "@mui/icons-material/AutoMode";
 
 const style = {
   position: "absolute",
@@ -30,8 +30,8 @@ const style = {
   p: 4,
 };
 
-const NoticeBoard = () => {
-  const notices = useLoaderData();
+const Recruitment = () => {
+  const recruitments = useLoaderData();
   const {
     register,
     handleSubmit,
@@ -44,24 +44,25 @@ const NoticeBoard = () => {
   const handleClose = () => setOpen(false);
 
   const onSubmit = (data) => {
-    const noticeDetails = {
+    const recruitmentDetails = {
       title: data.title,
-      publishedDate: data.publishedDate,
-      description: data.description,
-      publishedBy: data.publishedBy,
+      designation: data.designation,
+      vacancy: data.vacancy,
+      lastDate: data.lastDate,
+      status: data.status,
     };
 
-    fetch("http://localhost:5000/notice", {
+    fetch("http://localhost:5000/recruitment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(noticeDetails),
+      body: JSON.stringify(recruitmentDetails),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("New notice added!");
+          toast.success("New recruitment added!");
           reset();
           window.location.reload(false);
         }
@@ -69,8 +70,9 @@ const NoticeBoard = () => {
   };
 
   const handleDelete = () => {
-    toast.error('Only admin can delete')
+    toast.error("Only admin can delete");
   };
+
   return (
     <Container>
       <Typography
@@ -85,8 +87,8 @@ const NoticeBoard = () => {
         }}
         variant="h5"
       >
-        <AddToPhotosIcon sx={{ marginRight: "3px" }} />
-        Notice Board
+        <AutoModeIcon sx={{ marginRight: "3px" }} />
+        Recruitment
       </Typography>
       <div style={{ marginBottom: "10px" }}>
         <Button
@@ -97,7 +99,7 @@ const NoticeBoard = () => {
           }}
           onClick={handleOpen}
         >
-          Add Notice
+          Add New Job
         </Button>
         <Modal
           open={open}
@@ -115,7 +117,7 @@ const NoticeBoard = () => {
                     color: "#1C315E",
                   }}
                 >
-                  Notice Title
+                  Job Title
                 </label>
                 <br />
                 <input
@@ -126,15 +128,15 @@ const NoticeBoard = () => {
                     border: "1px dotted #0097a7",
                     borderRadius: "5px",
                   }}
-                  placeholder="Enter Notice Title"
-                  {...register("title", { required: true, maxLength: 10 })}
+                  placeholder="Enter Job Title"
+                  {...register("title", { required: true, maxLength: 20 })}
                 />
-                {errors.notice?.type === "maxLength" && (
+                {errors.title?.type === "maxLength" && (
                   <p
                     style={{ color: "red", margin: "0", fontSize: "14px" }}
                     role="alert"
                   >
-                    Max length 10
+                    Max length 20
                   </p>
                 )}
               </div>
@@ -146,7 +148,56 @@ const NoticeBoard = () => {
                     color: "#1C315E",
                   }}
                 >
-                  Published Date
+                  Designation
+                </label>
+                <br />
+                <input
+                  name="designation"
+                  style={{
+                    width: "80%",
+                    padding: "5px",
+                    border: "1px dotted #0097a7",
+                    borderRadius: "5px",
+                  }}
+                  placeholder="Enter Designation"
+                  {...register("designation", { required: true })}
+                />
+              </div>
+              <div style={{ marginBottom: "10px" }}>
+                <label
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "bold",
+                    color: "#1C315E",
+                  }}
+                >
+                  Vacancy
+                </label>
+                <br />
+                <input
+                  name="vacancy"
+                  type="number"
+                  style={{
+                    width: "80%",
+                    padding: "5px",
+                    border: "1px dotted #0097a7",
+                    borderRadius: "5px",
+                  }}
+                  placeholder="Enter Vacancy"
+                  {...register("vacancy", {
+                    required: true,
+                  })}
+                />
+              </div>
+              <div style={{ marginBottom: "10px" }}>
+                <label
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "bold",
+                    color: "#1C315E",
+                  }}
+                >
+                  Last Date
                 </label>
                 <br />
                 <input
@@ -157,7 +208,7 @@ const NoticeBoard = () => {
                     border: "1px dotted #0097a7",
                     borderRadius: "5px",
                   }}
-                  {...register("publishedDate", { required: true })}
+                  {...register("lastDate", { required: true })}
                 />
               </div>
               <div style={{ marginBottom: "10px" }}>
@@ -168,46 +219,22 @@ const NoticeBoard = () => {
                     color: "#1C315E",
                   }}
                 >
-                  Description
+                  Status
                 </label>
                 <br />
-                <input
-                  name="description"
+                <select
                   style={{
                     width: "80%",
                     padding: "5px",
                     border: "1px dotted #0097a7",
                     borderRadius: "5px",
                   }}
-                  placeholder="Enter Description"
-                  {...register("description", { required: true })}
-                />
-              </div>
-              <div style={{ marginBottom: "10px" }}>
-                <label
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    color: "#1C315E",
-                  }}
+                  {...register("status")}
                 >
-                  Published By
-                </label>
-                <br />
-                <input
-                  name="publishedBy"
-                  style={{
-                    width: "80%",
-                    padding: "5px",
-                    border: "1px dotted #0097a7",
-                    borderRadius: "5px",
-                  }}
-                  placeholder="Enter Published By"
-                  {...register("publishedBy", {
-                    required: true,
-                    maxLength: 10,
-                  })}
-                />
+                  <option value="Managed">Managed</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
               </div>
               <div>
                 <input
@@ -246,22 +273,27 @@ const NoticeBoard = () => {
               <TableCell
                 sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
               >
-                Notice Title
+                Job Title
               </TableCell>
               <TableCell
                 sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
               >
-                Publish Date
+                Designation
               </TableCell>
               <TableCell
                 sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
               >
-                Description
+                Vacancy
               </TableCell>
               <TableCell
                 sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
               >
-                Published by
+                Last date
+              </TableCell>
+              <TableCell
+                sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
+              >
+                Status
               </TableCell>
               <TableCell
                 sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
@@ -271,22 +303,23 @@ const NoticeBoard = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {notices
+            {recruitments
               .slice(0)
               .reverse()
-              .map((notice) => (
+              .map((recruitment) => (
                 <TableRow
-                  key={notice._id}
+                  key={recruitment._id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell>{notice.title}</TableCell>
-                  <TableCell>{notice.publishedDate}</TableCell>
-                  <TableCell>{notice.description}</TableCell>
+                  <TableCell>{recruitment.title}</TableCell>
+                  <TableCell>{recruitment.designation}</TableCell>
+                  <TableCell>{recruitment.vacancy}</TableCell>
+                  <TableCell>{recruitment.lastDate}</TableCell>
                   <TableCell sx={{ fontWeight: "bold" }}>
-                    {notice.publishedBy}
+                    {recruitment.status}
                   </TableCell>
                   <TableCell>
-                    <Link to={`/notice/${notice._id}`}>
+                    <Link to={`/recruitment/${recruitment._id}`}>
                       <ModeEditIcon
                         sx={{
                           backgroundColor: "#0097a7",
@@ -316,4 +349,4 @@ const NoticeBoard = () => {
   );
 };
 
-export default NoticeBoard;
+export default Recruitment;

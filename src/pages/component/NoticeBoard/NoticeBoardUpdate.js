@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 
 const NoticeBoardUpdate = () => {
   const storedNotice = useLoaderData();
@@ -51,8 +51,8 @@ const NoticeBoardUpdate = () => {
         }}
         variant="h5"
       >
-        <AttachMoneyIcon sx={{ marginRight: "3px" }} />
-        Update Payment
+        <AddToPhotosIcon sx={{ marginRight: "3px" }} />
+        Update Notice
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ marginBottom: "10px" }}>
