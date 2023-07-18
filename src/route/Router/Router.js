@@ -6,7 +6,7 @@ import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import Department from "../../pages/component/Department/Department/Department";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
-import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday/PublicHoliday";
+import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
 import RecruitmentUpdate from "../../pages/component/Recruitment/RecruitmentUpdate";
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
