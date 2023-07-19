@@ -17,7 +17,6 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
-import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import PersonIcon from "@mui/icons-material/Person";
 import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -332,21 +331,6 @@ function ResponsiveDrawer(props) {
         >
           <AutoModeIcon sx={{ marginRight: "3px" }} />
           Recruitment
-        </Link>
-        <Link
-          href="publicHoliday"
-          sx={{
-            textDecoration: "none",
-            fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
-            color: "black",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <HolidayVillageIcon sx={{ marginRight: "3px" }} />
-          Public Holiday
         </Link>
         <Link
           href="user"

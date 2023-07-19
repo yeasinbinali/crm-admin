@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter} from "react-router-dom";
 import Main from "../../layout/Main";
 import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer";
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
@@ -6,7 +6,6 @@ import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import Department from "../../pages/component/Department/Department/Department";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
-import PublicHoliday from "../../pages/component/PublicHoliday/PublicHoliday";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
 import RecruitmentUpdate from "../../pages/component/Recruitment/RecruitmentUpdate";
 import Invoice from "../../pages/component/Sales/Invoice/Invoice";
@@ -106,17 +105,13 @@ export const Router = createBrowserRouter([
         }
       },
       {
-        path: "/publicHoliday",
-        element: <PublicHoliday></PublicHoliday>,
-      },
-      {
         path: "/user",
         element: <User></User>,
       },
       {
         path: "/department",
         element: <Department></Department>,
-      },
-    ],
-  },
+      }
+    ]
+  }
 ]);
