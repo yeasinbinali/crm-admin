@@ -6,6 +6,7 @@ import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import AccountUpdated from "../../pages/component/Department/Account/AccountUpdated";
 import Department from "../../pages/component/Department/Department/Department";
 import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
+import HumanResourceUpdate from "../../pages/component/Department/HumanResource/HumanResourceUpdate";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
@@ -126,6 +127,13 @@ export const Router = createBrowserRouter([
         element: <AccountUpdated></AccountUpdated>,
         loader: ({params}) => {
           return fetch(`http://localhost:5000/account/${params.id}`)
+        }
+      },
+      {
+        path: '/humanResource/:id',
+        element: <HumanResourceUpdate></HumanResourceUpdate>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/humanResource/${params.id}`)
         }
       }
     ]
