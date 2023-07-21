@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer";
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
 import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
+import AccountUpdated from "../../pages/component/Department/Account/AccountUpdated";
 import Department from "../../pages/component/Department/Department/Department";
 import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
@@ -118,6 +119,13 @@ export const Router = createBrowserRouter([
         element: <FinanceUpdate></FinanceUpdate>,
         loader: ({params}) => {
           return fetch(`http://localhost:5000/finance/${params.id}`);
+        }
+      },
+      {
+        path: '/account/:id',
+        element: <AccountUpdated></AccountUpdated>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/account/${params.id}`)
         }
       }
     ]
