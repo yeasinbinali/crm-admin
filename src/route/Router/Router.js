@@ -4,6 +4,7 @@ import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer"
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
 import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
 import Department from "../../pages/component/Department/Department/Department";
+import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
@@ -111,6 +112,13 @@ export const Router = createBrowserRouter([
       {
         path: "/department",
         element: <Department></Department>,
+      },
+      {
+        path: "/finance/:id",
+        element: <FinanceUpdate></FinanceUpdate>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/finance/${params.id}`);
+        }
       }
     ]
   }
