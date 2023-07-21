@@ -7,6 +7,7 @@ import AccountUpdated from "../../pages/component/Department/Account/AccountUpda
 import Department from "../../pages/component/Department/Department/Department";
 import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
 import HumanResourceUpdate from "../../pages/component/Department/HumanResource/HumanResourceUpdate";
+import InformationTechnologyUpdate from "../../pages/component/Department/InformationTechnology/InformationTechnologyUpdate";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
@@ -134,6 +135,13 @@ export const Router = createBrowserRouter([
         element: <HumanResourceUpdate></HumanResourceUpdate>,
         loader: ({params}) => {
           return fetch(`http://localhost:5000/humanResource/${params.id}`)
+        }
+      },
+      {
+        path: '/informationTechnology/:id',
+        element: <InformationTechnologyUpdate></InformationTechnologyUpdate>,
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/informationTechnology/${params.id}`)
         }
       }
     ]

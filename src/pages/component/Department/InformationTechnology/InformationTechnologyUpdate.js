@@ -1,42 +1,42 @@
 import { Typography, Button } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
-import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import { Link } from "react-router-dom";
+import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 
-const AccountUpdated = () => {
-  const storedAccount = useLoaderData();
+const InformationTechnologyUpdate = () => {
+  const storedIT = useLoaderData();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    const accountDetails = {
+    const ITDetails = {
       name: data.name,
       designation: data.designation,
     };
-
-    fetch(`http://localhost:5000/account/${storedAccount._id}`, {
+    fetch(`http://localhost:5000/informationTechnology/${storedIT._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(accountDetails),
+      body: JSON.stringify(ITDetails),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          toast.success("Account updated successfully!");
+          toast.success("IT updated successfully!");
           navigate("/department");
         }
       });
   };
+
   return (
     <Container>
       <Typography
@@ -52,7 +52,7 @@ const AccountUpdated = () => {
         variant="h5"
       >
         <RoomPreferencesIcon sx={{ marginRight: "3px" }} />
-        Update Account
+        Update IT
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
         <Link
@@ -162,4 +162,4 @@ const AccountUpdated = () => {
   );
 };
 
-export default AccountUpdated;
+export default InformationTechnologyUpdate;
