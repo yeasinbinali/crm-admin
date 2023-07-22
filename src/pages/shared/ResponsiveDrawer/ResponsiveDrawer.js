@@ -24,6 +24,7 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import LoginIcon from '@mui/icons-material/Login';
 
 const drawerWidth = 240;
 
@@ -53,6 +54,22 @@ function ResponsiveDrawer(props) {
     <div>
       <Divider />
       <List sx={{ display: "grid", gridColumn: "auto" }}>
+        {/* Sign in */}
+        <Link
+          href="/signin"
+          sx={{
+            textDecoration: "none",
+            fontSize: "18px",
+            marginLeft: "20px",
+            marginBottom: "10px",
+            color: "black",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <LoginIcon sx={{ marginRight: "3px" }} />
+          Sign In
+        </Link>
         {/* dashboard */}
         <Link
           href="/"

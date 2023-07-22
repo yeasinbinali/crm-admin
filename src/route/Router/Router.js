@@ -8,6 +8,7 @@ import Department from "../../pages/component/Department/Department/Department";
 import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
 import HumanResourceUpdate from "../../pages/component/Department/HumanResource/HumanResourceUpdate";
 import InformationTechnologyUpdate from "../../pages/component/Department/InformationTechnology/InformationTechnologyUpdate";
+import Login from "../../pages/component/Login/Login";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
 import Recruitment from "../../pages/component/Recruitment/Recruitment";
@@ -17,6 +18,7 @@ import Payment from "../../pages/component/Sales/Payment/Payment";
 import PaymentUpdate from "../../pages/component/Sales/Payment/PaymentUpdate";
 import Quote from "../../pages/component/Sales/Quote/Quote";
 import QuoteUpdate from "../../pages/component/Sales/Quote/QuoteUpdate";
+import Signup from "../../pages/component/Signup/Signup";
 import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
 import Expense from "../../pages/component/Transaction/Expense/Expense";
 import Transfer from "../../pages/component/Transaction/Transfer/Transfer";
@@ -27,6 +29,14 @@ export const Router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     children: [
+      {
+        path: '/signin',
+        element: <Login></Login>
+      },
+      {
+        path: '/signup',
+        element: <Signup></Signup>
+      },
       {
         path: "/",
         element: <Dashboard></Dashboard>,
