@@ -8,16 +8,23 @@ import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { AuthContext } from "../../../context/UserContext/UserContext";
 import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        reset();
+        toast.success("Login successfully!");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -131,7 +138,7 @@ const Login = () => {
           <Typography>
             New to CRM Admin?{" "}
             <Link
-              style={{ textDecoration: "none", color: "#1C315E" }}
+              style={{ textDecoration: "none", color: "#1C315E", fontWeight: 'bold' }}
               to="/signup"
             >
               Signup

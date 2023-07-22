@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../context/UserContext/UserContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
   const {
@@ -14,6 +15,7 @@ const Signup = () => {
     formState: { errors },
     reset,
   } = useForm();
+  const navigate = useNavigate();
 
   const { createUser } = useContext(AuthContext);
 
@@ -23,8 +25,9 @@ const Signup = () => {
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         reset();
+        toast.success('Create an account successfully!');
+        navigate('/');
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -161,8 +164,8 @@ const Signup = () => {
           <Typography sx={{ marginTop: "8px" }}>
             Already have an account?{" "}
             <Link
-              style={{ textDecoration: "none", color: "#1C315E" }}
-              to="/signin"
+              style={{ textDecoration: "none", color: "#1C315E", fontWeight: 'bold' }}
+              to="/login"
             >
               Signin
             </Link>

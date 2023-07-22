@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -23,12 +23,16 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import LoginIcon from '@mui/icons-material/Login';
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import LoginIcon from "@mui/icons-material/Login";
+import { AuthContext } from "../../../context/UserContext/UserContext";
+import toast from "react-hot-toast";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
+  const { user, logOut } = useContext(AuthContext);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -48,28 +52,52 @@ function ResponsiveDrawer(props) {
   };
   const handleSalesClick = () => {
     setOpenSales(!openSales);
-  }
+  };
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => toast.error(error));
+  };
 
   const drawer = (
     <div>
       <Divider />
       <List sx={{ display: "grid", gridColumn: "auto" }}>
         {/* Sign in */}
-        <Link
-          href="/signin"
-          sx={{
-            textDecoration: "none",
-            fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
-            color: "black",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <LoginIcon sx={{ marginRight: "3px" }} />
-          Sign In
-        </Link>
+        {user?.email ? (
+          <Link
+            onClick={handleLogout}
+            sx={{
+              textDecoration: "none",
+              fontSize: "18px",
+              marginLeft: "20px",
+              marginBottom: "10px",
+              color: "black",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <LogoutIcon sx={{ marginRight: "3px" }} />
+            Sign Out
+          </Link>
+        ) : (
+          <Link
+            href="/login"
+            sx={{
+              textDecoration: "none",
+              fontSize: "18px",
+              marginLeft: "20px",
+              marginBottom: "10px",
+              color: "black",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <LoginIcon sx={{ marginRight: "3px" }} />
+            Sign In
+          </Link>
+        )}
         {/* dashboard */}
         <Link
           href="/"

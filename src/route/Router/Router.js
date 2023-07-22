@@ -1,4 +1,4 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer";
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
@@ -23,6 +23,7 @@ import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
 import Expense from "../../pages/component/Transaction/Expense/Expense";
 import Transfer from "../../pages/component/Transaction/Transfer/Transfer";
 import User from "../../pages/component/User/User/User";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const Router = createBrowserRouter([
   {
@@ -30,12 +31,12 @@ export const Router = createBrowserRouter([
     element: <Main></Main>,
     children: [
       {
-        path: '/signin',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/signup',
-        element: <Signup></Signup>
+        path: "/signup",
+        element: <Signup></Signup>,
       },
       {
         path: "/",
@@ -43,117 +44,199 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/addCustomer",
-        element: <AddCustomer></AddCustomer>,
+        element: (
+          <PrivateRoute>
+            <AddCustomer></AddCustomer>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/customerList",
-        element: <CustomerList></CustomerList>,
+        element: (
+          <PrivateRoute>
+            <CustomerList></CustomerList>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/customers"),
       },
       {
         path: "/deposit",
-        element: <Deposit></Deposit>,
+        element: (
+          <PrivateRoute>
+            <Deposit></Deposit>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/deposit"),
       },
       {
         path: "/expense",
-        element: <Expense></Expense>,
+        element: (
+          <PrivateRoute>
+            <Expense></Expense>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/expense"),
       },
       {
         path: "/transfer",
-        element: <Transfer></Transfer>,
+        element: (
+          <PrivateRoute>
+            <Transfer></Transfer>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/transfer"),
       },
       {
         path: "/invoice",
-        element: <Invoice></Invoice>,
+        element: (
+          <PrivateRoute>
+            <Invoice></Invoice>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/invoice"),
       },
       {
         path: "/quote",
-        element: <Quote></Quote>,
+        element: (
+          <PrivateRoute>
+            <Quote></Quote>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/quote"),
       },
       {
         path: "/quote/:id",
-        element: <QuoteUpdate></QuoteUpdate>,
+        element: (
+          <PrivateRoute>
+            <QuoteUpdate></QuoteUpdate>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/quote/${params.id}`);
         },
       },
       {
         path: "/payment",
-        element: <Payment></Payment>,
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/payment"),
       },
       {
         path: "/payment/:id",
-        element: <PaymentUpdate></PaymentUpdate>,
+        element: (
+          <PrivateRoute>
+            <PaymentUpdate></PaymentUpdate>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/payment/${params.id}`);
         },
       },
       {
         path: "/notice",
-        element: <NoticeBoard></NoticeBoard>,
+        element: (
+          <PrivateRoute>
+            <NoticeBoard></NoticeBoard>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/notice"),
       },
       {
         path: "/notice/:id",
-        element: <NoticeBoardUpdate></NoticeBoardUpdate>,
+        element: (
+          <PrivateRoute>
+            <NoticeBoardUpdate></NoticeBoardUpdate>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/notice/${params.id}`);
         },
       },
       {
         path: "/recruitment",
-        element: <Recruitment></Recruitment>,
-        loader: () => fetch("http://localhost:5000/recruitment")
+        element: (
+          <PrivateRoute>
+            <Recruitment></Recruitment>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/recruitment"),
       },
       {
-        path: '/recruitment/:id',
-        element: <RecruitmentUpdate></RecruitmentUpdate>,
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/recruitment/${params.id}`)
-        }
+        path: "/recruitment/:id",
+        element: (
+          <PrivateRoute>
+            <RecruitmentUpdate></RecruitmentUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/recruitment/${params.id}`);
+        },
       },
       {
         path: "/user",
-        element: <User></User>,
+        element: (
+          <PrivateRoute>
+            <User></User>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/department",
-        element: <Department></Department>,
+        element: (
+          <PrivateRoute>
+            <Department></Department>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/finance/:id",
-        element: <FinanceUpdate></FinanceUpdate>,
-        loader: ({params}) => {
+        element: (
+          <PrivateRoute>
+            <FinanceUpdate></FinanceUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
           return fetch(`http://localhost:5000/finance/${params.id}`);
-        }
+        },
       },
       {
-        path: '/account/:id',
-        element: <AccountUpdated></AccountUpdated>,
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/account/${params.id}`)
-        }
+        path: "/account/:id",
+        element: (
+          <PrivateRoute>
+            <AccountUpdated></AccountUpdated>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/account/${params.id}`);
+        },
       },
       {
-        path: '/humanResource/:id',
-        element: <HumanResourceUpdate></HumanResourceUpdate>,
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/humanResource/${params.id}`)
-        }
+        path: "/humanResource/:id",
+        element: (
+          <PrivateRoute>
+            <HumanResourceUpdate></HumanResourceUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/humanResource/${params.id}`);
+        },
       },
       {
-        path: '/informationTechnology/:id',
-        element: <InformationTechnologyUpdate></InformationTechnologyUpdate>,
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/informationTechnology/${params.id}`)
-        }
-      }
-    ]
-  }
+        path: "/informationTechnology/:id",
+        element: (
+          <PrivateRoute>
+            <InformationTechnologyUpdate></InformationTechnologyUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/informationTechnology/${params.id}`
+          );
+        },
+      },
+    ],
+  },
 ]);
