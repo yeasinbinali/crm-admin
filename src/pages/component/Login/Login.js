@@ -35,7 +35,6 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
         toast.success("Google signin successfully!");
         navigate(from, { replace: true });
       })

@@ -17,7 +17,7 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
-import PersonIcon from "@mui/icons-material/Person";
+// import PersonIcon from "@mui/icons-material/Person";
 import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Collapse from "@mui/material/Collapse";
@@ -76,6 +76,7 @@ function ResponsiveDrawer(props) {
               color: "black",
               display: "flex",
               alignItems: "center",
+              cursor: 'pointer'
             }}
           >
             <LogoutIcon sx={{ marginRight: "3px" }} />
@@ -92,6 +93,7 @@ function ResponsiveDrawer(props) {
               color: "black",
               display: "flex",
               alignItems: "center",
+              cursor: 'pointer'
             }}
           >
             <LoginIcon sx={{ marginRight: "3px" }} />
@@ -129,6 +131,7 @@ function ResponsiveDrawer(props) {
               marginBottom: "10px",
               justifyContent: "space-between",
               alignItems: "center",
+              cursor: 'pointer'
             }}
             onClick={handleCustomerClick}
           >
@@ -187,6 +190,7 @@ function ResponsiveDrawer(props) {
             textDecoration: "none",
             fontSize: "18px",
             color: "black",
+            cursor: 'pointer'
           }}
         >
           <Typography
@@ -270,6 +274,7 @@ function ResponsiveDrawer(props) {
             textDecoration: "none",
             fontSize: "18px",
             color: "black",
+            cursor: 'pointer'
           }}
         >
           <Typography
@@ -377,7 +382,7 @@ function ResponsiveDrawer(props) {
           <AutoModeIcon sx={{ marginRight: "3px" }} />
           Recruitment
         </Link>
-        <Link
+        {/* <Link
           href="user"
           sx={{
             textDecoration: "none",
@@ -391,7 +396,7 @@ function ResponsiveDrawer(props) {
         >
           <PersonIcon sx={{ marginRight: "3px" }} />
           User
-        </Link>
+        </Link> */}
         <Link
           href="department"
           sx={{

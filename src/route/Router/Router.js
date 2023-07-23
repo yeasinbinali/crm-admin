@@ -175,14 +175,14 @@ export const Router = createBrowserRouter([
           return fetch(`http://localhost:5000/recruitment/${params.id}`);
         },
       },
-      {
-        path: "/user",
-        element: (
-          <PrivateRoute>
-            <User></User>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/user",
+      //   element: (
+      //     <PrivateRoute>
+      //       <User></User>
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "/department",
         element: (
