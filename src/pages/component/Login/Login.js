@@ -5,14 +5,13 @@ import LoginIcon from "@mui/icons-material/Login";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import { AuthContext } from "../../../context/UserContext/UserContext";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -29,6 +28,19 @@ const Login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         toast.error(errorMessage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Google signin successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
 
@@ -127,18 +139,19 @@ const Login = () => {
             type="reset"
           />
           <br />
-          <p style={{ display: "flex", alignItems: "center" }}>
-            <button>
+          <p>
+            <button onClick={handleGoogleSignIn}>
               <GoogleIcon />
-            </button>
-            <button style={{ marginLeft: "10px" }}>
-              <FacebookIcon />
             </button>
           </p>
           <Typography>
             New to CRM Admin?{" "}
             <Link
-              style={{ textDecoration: "none", color: "#1C315E", fontWeight: 'bold' }}
+              style={{
+                textDecoration: "none",
+                color: "#1C315E",
+                fontWeight: "bold",
+              }}
               to="/signup"
             >
               Signup
