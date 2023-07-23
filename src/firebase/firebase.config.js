@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD2YwQuT7MMPaq00f7qy4vuKnrJVElxHN4",
-  authDomain: "crm-admin-portfolio.firebaseapp.com",
-  projectId: "crm-admin-portfolio",
-  storageBucket: "crm-admin-portfolio.appspot.com",
-  messagingSenderId: "406677206765",
-  appId: "1:406677206765:web:9f5ee1cf94a277c29a3ee4"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

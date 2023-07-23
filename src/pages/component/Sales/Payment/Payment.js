@@ -51,7 +51,7 @@ const Payment = () => {
       amount: data.amount,
     };
 
-    fetch("http://localhost:5000/payment", {
+    fetch("https://crm-admin-server.vercel.app/payment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -60,7 +60,7 @@ const Payment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.acknowledged){
+        if (data.acknowledged) {
           toast.success("New payment added");
           reset();
           window.location.reload(false);
@@ -70,7 +70,7 @@ const Payment = () => {
 
   const handleDelete = () => {
     toast.error("Only admin can change");
-  }
+  };
   return (
     <Container>
       <Typography
@@ -276,40 +276,43 @@ const Payment = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {payments.slice(0).reverse().map((payment) => (
-              <TableRow
-                key={payment._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell>{payment.invoice}</TableCell>
-                <TableCell>{payment.date}</TableCell>
-                <TableCell>{payment.account}</TableCell>
-                <TableCell>${payment.amount}</TableCell>
-                <TableCell>{payment._id.slice(0, 10)}</TableCell>
-                <TableCell>
-                  <Link to={`/payment/${payment._id}`}>
-                    <ModeEditIcon
+            {payments
+              .slice(0)
+              .reverse()
+              .map((payment) => (
+                <TableRow
+                  key={payment._id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>{payment.invoice}</TableCell>
+                  <TableCell>{payment.date}</TableCell>
+                  <TableCell>{payment.account}</TableCell>
+                  <TableCell>${payment.amount}</TableCell>
+                  <TableCell>{payment._id.slice(0, 10)}</TableCell>
+                  <TableCell>
+                    <Link to={`/payment/${payment._id}`}>
+                      <ModeEditIcon
+                        sx={{
+                          backgroundColor: "#0097a7",
+                          color: "#fff",
+                          padding: "4px",
+                          borderRadius: "2px",
+                        }}
+                      />
+                    </Link>
+                    <DeleteIcon
+                      onClick={handleDelete}
                       sx={{
-                        backgroundColor: "#0097a7",
+                        backgroundColor: "#F24C3D",
                         color: "#fff",
                         padding: "4px",
                         borderRadius: "2px",
+                        marginLeft: "5px",
                       }}
                     />
-                  </Link>
-                  <DeleteIcon
-                    onClick={handleDelete}
-                    sx={{
-                      backgroundColor: "#F24C3D",
-                      color: "#fff",
-                      padding: "4px",
-                      borderRadius: "2px",
-                      marginLeft: "5px",
-                    }}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

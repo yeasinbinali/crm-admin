@@ -30,7 +30,7 @@ const style = {
 const Finance = () => {
   const [finances, setFinances] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/finance")
+    fetch("https://crm-admin-server.vercel.app/finance")
       .then((res) => res.json())
       .then((data) => setFinances(data));
   }, []);
@@ -49,7 +49,7 @@ const Finance = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/finance", {
+    fetch("https://crm-admin-server.vercel.app/finance", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -67,8 +67,8 @@ const Finance = () => {
   };
 
   const handleDelete = () => {
-    toast.error('Only Admin can delete!')
-  }
+    toast.error("Only Admin can delete!");
+  };
 
   return (
     <div style={{ background: "whitesmoke", padding: "10px" }}>
@@ -242,27 +242,27 @@ const Finance = () => {
                   <TableCell>{finance.name}</TableCell>
                   <TableCell>{finance.designation}</TableCell>
                   <TableCell>
-                  <Link to={`/finance/${finance._id}`}>
-                    <ModeEditIcon
+                    <Link to={`/finance/${finance._id}`}>
+                      <ModeEditIcon
+                        sx={{
+                          backgroundColor: "#0097a7",
+                          color: "#fff",
+                          padding: "4px",
+                          borderRadius: "2px",
+                        }}
+                      />
+                    </Link>
+                    <DeleteIcon
+                      onClick={handleDelete}
                       sx={{
-                        backgroundColor: "#0097a7",
+                        backgroundColor: "#F24C3D",
                         color: "#fff",
                         padding: "4px",
                         borderRadius: "2px",
+                        marginLeft: "5px",
                       }}
                     />
-                  </Link>
-                  <DeleteIcon
-                    onClick={handleDelete}
-                    sx={{
-                      backgroundColor: "#F24C3D",
-                      color: "#fff",
-                      padding: "4px",
-                      borderRadius: "2px",
-                      marginLeft: "5px",
-                    }}
-                  />
-                </TableCell>
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>

@@ -30,7 +30,7 @@ const style = {
 const HumanResource = () => {
   const [humanResources, setHumanResources] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/humanResource")
+    fetch("https://crm-admin-server.vercel.app/humanResource")
       .then((res) => res.json())
       .then((data) => setHumanResources(data));
   }, []);
@@ -51,7 +51,7 @@ const HumanResource = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/humanResource", {
+    fetch("https://crm-admin-server.vercel.app/humanResource", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,8 +69,8 @@ const HumanResource = () => {
   };
 
   const handleDelete = () => {
-    toast.error('Only Admin can delete!')
-  }
+    toast.error("Only Admin can delete!");
+  };
   return (
     <div style={{ background: "whitesmoke", padding: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>

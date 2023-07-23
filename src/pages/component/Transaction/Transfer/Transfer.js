@@ -49,7 +49,7 @@ const Transfer = () => {
       amount: data.amount,
       tag: data.tag.toUpperCase(),
     };
-    fetch("http://localhost:5000/transfer", {
+    fetch("https://crm-admin-server.vercel.app/transfer", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -313,15 +313,18 @@ const Transfer = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {transfers.slice(0).reverse().map((transfer) => (
-                  <StyledTableRow key={transfer._id}>
-                    <StyledTableCell>{transfer.date}</StyledTableCell>
-                    <StyledTableCell>{transfer.account}</StyledTableCell>
-                    <StyledTableCell>{transfer.description}</StyledTableCell>
-                    <StyledTableCell>${transfer.amount}</StyledTableCell>
-                    <StyledTableCell>{transfer.tag}</StyledTableCell>
-                  </StyledTableRow>
-                ))}
+                {transfers
+                  .slice(0)
+                  .reverse()
+                  .map((transfer) => (
+                    <StyledTableRow key={transfer._id}>
+                      <StyledTableCell>{transfer.date}</StyledTableCell>
+                      <StyledTableCell>{transfer.account}</StyledTableCell>
+                      <StyledTableCell>{transfer.description}</StyledTableCell>
+                      <StyledTableCell>${transfer.amount}</StyledTableCell>
+                      <StyledTableCell>{transfer.tag}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
               </TableBody>
             </Table>
           </TableContainer>

@@ -49,12 +49,12 @@ const Invoice = () => {
       due: data.due,
       type: data.type,
     };
-    fetch("http://localhost:5000/invoice", {
+    fetch("https://crm-admin-server.vercel.app/invoice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(invoiceDetails)
+      body: JSON.stringify(invoiceDetails),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -259,28 +259,51 @@ const Invoice = () => {
       </div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
-          <TableHead sx={{backgroundColor: '#E3F4F4'}}>
+          <TableHead sx={{ backgroundColor: "#E3F4F4" }}>
             <TableRow>
-              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Account</TableCell>
-              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Amount</TableCell>
-              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Invoice Date</TableCell>
-              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Due Date</TableCell>
-              <TableCell sx={{color: "#1C315E", fontWeight: '700', fontSize: '15px'}}>Type</TableCell>
+              <TableCell
+                sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
+              >
+                Account
+              </TableCell>
+              <TableCell
+                sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
+              >
+                Amount
+              </TableCell>
+              <TableCell
+                sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
+              >
+                Invoice Date
+              </TableCell>
+              <TableCell
+                sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
+              >
+                Due Date
+              </TableCell>
+              <TableCell
+                sx={{ color: "#1C315E", fontWeight: "700", fontSize: "15px" }}
+              >
+                Type
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {invoices.slice(0).reverse().map((invoice) => (
-              <TableRow
-                key={invoice._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell>{invoice.name}</TableCell>
-                <TableCell>${invoice.amount}</TableCell>
-                <TableCell>{invoice.invoice}</TableCell>
-                <TableCell>{invoice.due}</TableCell>
-                <TableCell>{invoice.type}</TableCell>
-              </TableRow>
-            ))}
+            {invoices
+              .slice(0)
+              .reverse()
+              .map((invoice) => (
+                <TableRow
+                  key={invoice._id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>{invoice.name}</TableCell>
+                  <TableCell>${invoice.amount}</TableCell>
+                  <TableCell>{invoice.invoice}</TableCell>
+                  <TableCell>{invoice.due}</TableCell>
+                  <TableCell>{invoice.type}</TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

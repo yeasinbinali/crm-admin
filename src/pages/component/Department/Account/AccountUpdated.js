@@ -13,7 +13,7 @@ const AccountUpdated = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
@@ -22,7 +22,7 @@ const AccountUpdated = () => {
       designation: data.designation,
     };
 
-    fetch(`http://localhost:5000/account/${storedAccount._id}`, {
+    fetch(`https://crm-admin-server.vercel.app/account/${storedAccount._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -25,13 +25,16 @@ const RecruitmentUpdate = () => {
       lastDate: data.lastDate,
       status: data.status,
     };
-    fetch(`http://localhost:5000/recruitment/${storedRecruitment._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(recruitmentDetails),
-    })
+    fetch(
+      `https://crm-admin-server.vercel.app/recruitment/${storedRecruitment._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(recruitmentDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -58,7 +61,12 @@ const RecruitmentUpdate = () => {
         Recruitment Update
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link to='/recruitment' style={{textDecoration: 'none', color: 'white'}}>Back</Link>
+        <Link
+          to="/recruitment"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          Back
+        </Link>
       </Button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ marginBottom: "10px" }}>

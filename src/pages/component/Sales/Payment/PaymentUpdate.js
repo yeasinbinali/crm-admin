@@ -24,7 +24,7 @@ const PaymentUpdate = () => {
       account: data.account,
       amount: data.amount,
     };
-    fetch(`http://localhost:5000/payment/${storedPayment._id}`, {
+    fetch(`https://crm-admin-server.vercel.app/payment/${storedPayment._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -57,10 +57,7 @@ const PaymentUpdate = () => {
         Update Payment
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link
-          to="/payment"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link to="/payment" style={{ textDecoration: "none", color: "white" }}>
           Back
         </Link>
       </Button>

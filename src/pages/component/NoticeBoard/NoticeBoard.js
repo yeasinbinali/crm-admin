@@ -51,7 +51,7 @@ const NoticeBoard = () => {
       publishedBy: data.publishedBy,
     };
 
-    fetch("http://localhost:5000/notice", {
+    fetch("https://crm-admin-server.vercel.app/notice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,7 @@ const NoticeBoard = () => {
   };
 
   const handleDelete = () => {
-    toast.error('Only admin can delete')
+    toast.error("Only admin can delete");
   };
   return (
     <Container>

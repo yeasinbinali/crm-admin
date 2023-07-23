@@ -25,7 +25,7 @@ const QuoteUpdate = () => {
       entry: data.entry,
       expired: data.expired,
     };
-    fetch(`http://localhost:5000/quote/${storedQuote._id}`, {
+    fetch(`https://crm-admin-server.vercel.app/quote/${storedQuote._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -58,10 +58,7 @@ const QuoteUpdate = () => {
         Update Quote
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link
-          to="/quote"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link to="/quote" style={{ textDecoration: "none", color: "white" }}>
           Back
         </Link>
       </Button>

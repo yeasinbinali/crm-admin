@@ -30,7 +30,7 @@ const style = {
 const InformationTechnology = () => {
   const [informationTechnologies, setinformationTechnologies] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/informationTechnology")
+    fetch("https://crm-admin-server.vercel.app/informationTechnology")
       .then((res) => res.json())
       .then((data) => setinformationTechnologies(data));
   }, []);
@@ -51,7 +51,7 @@ const InformationTechnology = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/informationTechnology", {
+    fetch("https://crm-admin-server.vercel.app/informationTechnology", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -70,7 +70,7 @@ const InformationTechnology = () => {
 
   const handleDelete = () => {
     toast.error("Only Admin can delete!");
-  }
+  };
 
   return (
     <div style={{ background: "whitesmoke", padding: "10px" }}>
@@ -244,7 +244,9 @@ const InformationTechnology = () => {
                   <TableCell>{informationTechnology.name}</TableCell>
                   <TableCell>{informationTechnology.designation}</TableCell>
                   <TableCell>
-                    <Link to={`/informationTechnology/${informationTechnology._id}`}>
+                    <Link
+                      to={`/informationTechnology/${informationTechnology._id}`}
+                    >
                       <ModeEditIcon
                         sx={{
                           backgroundColor: "#0097a7",

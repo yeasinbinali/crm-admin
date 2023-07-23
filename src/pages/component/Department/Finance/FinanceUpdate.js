@@ -23,21 +23,21 @@ const FinanceUpdate = () => {
       designation: data.designation,
     };
 
-    fetch(`http://localhost:5000/finance/${storedFinance._id}`, {
-      method: 'PUT',
+    fetch(`https://crm-admin-server.vercel.app/finance/${storedFinance._id}`, {
+      method: "PUT",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(financeDetails)
+      body: JSON.stringify(financeDetails),
     })
-    .then(res => res.json())
-    .then(data => {
-      if(data.modifiedCount > 0){
-        toast.success('Finance updated successfully!');
-        navigate('/department');
-        reset();
-      }
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Finance updated successfully!");
+          navigate("/department");
+          reset();
+        }
+      });
   };
   return (
     <Container>

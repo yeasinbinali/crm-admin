@@ -39,30 +39,30 @@ const Expense = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
   const onSubmit = (data) => {
     const expenseDetails = {
       account: data.account,
       date: data.date,
       description: data.description,
-      amount: data.amount
-    }
-    fetch('http://localhost:5000/expense', {
-      method: 'POST',
+      amount: data.amount,
+    };
+    fetch("https://crm-admin-server.vercel.app/expense", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(expenseDetails)
+      body: JSON.stringify(expenseDetails),
     })
-    .then(res => res.json())
-    .then(data => {
-      if(data.acknowledged){
-        toast.success("New expense added!");
-        reset();
-        window.location.reload(false);
-      }
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("New expense added!");
+          reset();
+          window.location.reload(false);
+        }
+      });
   };
   return (
     <Container>
@@ -253,14 +253,17 @@ const Expense = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {expenses.slice(0).reverse().map((expense) => (
-                  <StyledTableRow key={expense._id}>
-                    <StyledTableCell>{expense.date}</StyledTableCell>
-                    <StyledTableCell>{expense.account}</StyledTableCell>
-                    <StyledTableCell>{expense.description}</StyledTableCell>
-                    <StyledTableCell>${expense.amount}</StyledTableCell>
-                  </StyledTableRow>
-                ))}
+                {expenses
+                  .slice(0)
+                  .reverse()
+                  .map((expense) => (
+                    <StyledTableRow key={expense._id}>
+                      <StyledTableCell>{expense.date}</StyledTableCell>
+                      <StyledTableCell>{expense.account}</StyledTableCell>
+                      <StyledTableCell>{expense.description}</StyledTableCell>
+                      <StyledTableCell>${expense.amount}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
               </TableBody>
             </Table>
           </TableContainer>

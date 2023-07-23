@@ -44,8 +44,8 @@ const Quote = () => {
   const handleClose = () => setOpen(false);
 
   const handleDeleteBtn = () => {
-    toast.error(`Only admin can delete`)
-  }
+    toast.error(`Only admin can delete`);
+  };
 
   const onSubmit = (data) => {
     const quoteDetails = {
@@ -55,12 +55,12 @@ const Quote = () => {
       entry: data.entry,
       expired: data.expired,
     };
-    fetch("http://localhost:5000/quote", {
+    fetch("https://crm-admin-server.vercel.app/quote", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(quoteDetails)
+      body: JSON.stringify(quoteDetails),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -299,40 +299,43 @@ const Quote = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {quotes.slice(0).reverse().map((quote) => (
-              <TableRow
-                key={quote._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell>{quote.name}</TableCell>
-                <TableCell>{quote.subject}</TableCell>
-                <TableCell>${quote.amount}</TableCell>
-                <TableCell>{quote.entry}</TableCell>
-                <TableCell>{quote.expired}</TableCell>
-                <TableCell>
-                  <Link to={`/quote/${quote._id}`}>
-                    <ModeEditIcon
+            {quotes
+              .slice(0)
+              .reverse()
+              .map((quote) => (
+                <TableRow
+                  key={quote._id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>{quote.name}</TableCell>
+                  <TableCell>{quote.subject}</TableCell>
+                  <TableCell>${quote.amount}</TableCell>
+                  <TableCell>{quote.entry}</TableCell>
+                  <TableCell>{quote.expired}</TableCell>
+                  <TableCell>
+                    <Link to={`/quote/${quote._id}`}>
+                      <ModeEditIcon
+                        sx={{
+                          backgroundColor: "#0097a7",
+                          color: "#fff",
+                          padding: "4px",
+                          borderRadius: "2px",
+                        }}
+                      />
+                    </Link>
+                    <DeleteIcon
+                      onClick={handleDeleteBtn}
                       sx={{
-                        backgroundColor: "#0097a7",
+                        backgroundColor: "#F24C3D",
                         color: "#fff",
                         padding: "4px",
                         borderRadius: "2px",
+                        marginLeft: "5px",
                       }}
                     />
-                  </Link>
-                  <DeleteIcon
-                    onClick={handleDeleteBtn}
-                    sx={{
-                      backgroundColor: "#F24C3D",
-                      color: "#fff",
-                      padding: "4px",
-                      borderRadius: "2px",
-                      marginLeft: "5px",
-                    }}
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

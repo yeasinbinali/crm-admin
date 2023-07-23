@@ -47,7 +47,7 @@ const Deposit = () => {
       description: data.description,
       amount: data.amount,
     };
-    fetch("http://localhost:5000/deposit", {
+    fetch("https://crm-admin-server.vercel.app/deposit", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -285,14 +285,17 @@ const Deposit = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {deposits.slice(0).reverse().map((deposit) => (
-                  <StyledTableRow key={deposit._id}>
-                    <StyledTableCell>{deposit.date}</StyledTableCell>
-                    <StyledTableCell>{deposit.account}</StyledTableCell>
-                    <StyledTableCell>{deposit.description}</StyledTableCell>
-                    <StyledTableCell>${deposit.amount}</StyledTableCell>
-                  </StyledTableRow>
-                ))}
+                {deposits
+                  .slice(0)
+                  .reverse()
+                  .map((deposit) => (
+                    <StyledTableRow key={deposit._id}>
+                      <StyledTableCell>{deposit.date}</StyledTableCell>
+                      <StyledTableCell>{deposit.account}</StyledTableCell>
+                      <StyledTableCell>{deposit.description}</StyledTableCell>
+                      <StyledTableCell>${deposit.amount}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
               </TableBody>
             </Table>
           </TableContainer>

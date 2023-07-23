@@ -40,7 +40,7 @@ const AddCustomer = () => {
             sex: data.sex,
             status: data.status,
           };
-          fetch("http://localhost:5000/customers", {
+          fetch("https://crm-admin-server.vercel.app/customers", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -51,7 +51,7 @@ const AddCustomer = () => {
             .then((data) => {
               if (data.acknowledged) {
                 toast.success(`New customer added successfully!`);
-                navigate('/customerList');
+                navigate("/customerList");
                 reset();
               }
             });
@@ -257,7 +257,7 @@ const AddCustomer = () => {
               border: "none",
               color: "white",
               padding: "5px 20px",
-              fontSize: "16px"
+              fontSize: "16px",
             }}
             type="reset"
           />

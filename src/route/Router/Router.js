@@ -57,7 +57,7 @@ export const Router = createBrowserRouter([
             <CustomerList></CustomerList>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/customers"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/customers"),
       },
       {
         path: "/deposit",
@@ -66,7 +66,7 @@ export const Router = createBrowserRouter([
             <Deposit></Deposit>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/deposit"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/deposit"),
       },
       {
         path: "/expense",
@@ -75,7 +75,7 @@ export const Router = createBrowserRouter([
             <Expense></Expense>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/expense"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/expense"),
       },
       {
         path: "/transfer",
@@ -84,7 +84,7 @@ export const Router = createBrowserRouter([
             <Transfer></Transfer>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/transfer"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/transfer"),
       },
       {
         path: "/invoice",
@@ -93,7 +93,7 @@ export const Router = createBrowserRouter([
             <Invoice></Invoice>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/invoice"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/invoice"),
       },
       {
         path: "/quote",
@@ -102,7 +102,7 @@ export const Router = createBrowserRouter([
             <Quote></Quote>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/quote"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/quote"),
       },
       {
         path: "/quote/:id",
@@ -112,7 +112,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/quote/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/quote/${params.id}`
+          );
         },
       },
       {
@@ -122,7 +124,7 @@ export const Router = createBrowserRouter([
             <Payment></Payment>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/payment"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/payment"),
       },
       {
         path: "/payment/:id",
@@ -132,7 +134,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/payment/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/payment/${params.id}`
+          );
         },
       },
       {
@@ -142,7 +146,7 @@ export const Router = createBrowserRouter([
             <NoticeBoard></NoticeBoard>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/notice"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/notice"),
       },
       {
         path: "/notice/:id",
@@ -152,7 +156,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/notice/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/notice/${params.id}`
+          );
         },
       },
       {
@@ -162,7 +168,7 @@ export const Router = createBrowserRouter([
             <Recruitment></Recruitment>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/recruitment"),
+        loader: () => fetch("https://crm-admin-server.vercel.app/recruitment"),
       },
       {
         path: "/recruitment/:id",
@@ -172,7 +178,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/recruitment/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/recruitment/${params.id}`
+          );
         },
       },
       // {
@@ -199,7 +207,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/finance/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/finance/${params.id}`
+          );
         },
       },
       {
@@ -210,7 +220,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/account/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/account/${params.id}`
+          );
         },
       },
       {
@@ -221,7 +233,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/humanResource/${params.id}`);
+          return fetch(
+            `https://crm-admin-server.vercel.app/humanResource/${params.id}`
+          );
         },
       },
       {
@@ -233,7 +247,7 @@ export const Router = createBrowserRouter([
         ),
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/informationTechnology/${params.id}`
+            `https://crm-admin-server.vercel.app/informationTechnology/${params.id}`
           );
         },
       },

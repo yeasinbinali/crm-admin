@@ -24,7 +24,7 @@ const NoticeBoardUpdate = () => {
       description: data.description,
       publishedBy: data.publishedBy,
     };
-    fetch(`http://localhost:5000/notice/${storedNotice._id}`, {
+    fetch(`https://crm-admin-server.vercel.app/notice/${storedNotice._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -57,10 +57,7 @@ const NoticeBoardUpdate = () => {
         Update Notice
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link
-          to="/notice"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link to="/notice" style={{ textDecoration: "none", color: "white" }}>
           Back
         </Link>
       </Button>

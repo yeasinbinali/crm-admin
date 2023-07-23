@@ -30,7 +30,7 @@ const style = {
 const Account = () => {
   const [accounts, setAccounts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/account")
+    fetch("https://crm-admin-server.vercel.app/account")
       .then((res) => res.json())
       .then((data) => setAccounts(data));
   }, []);
@@ -49,7 +49,7 @@ const Account = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/account", {
+    fetch("https://crm-admin-server.vercel.app/account", {
       method: "POST",
       headers: {
         "content-type": "application/json",
