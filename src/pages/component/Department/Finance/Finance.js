@@ -241,7 +241,7 @@ const Finance = () => {
                 <TableRow key={finance._id}>
                   <TableCell>{finance.name}</TableCell>
                   <TableCell>{finance.designation}</TableCell>
-                  <TableCell>
+                  <TableCell sx={{display: 'flex'}}>
                     <Link to={`/finance/${finance._id}`}>
                       <ModeEditIcon
                         sx={{

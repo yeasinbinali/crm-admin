@@ -240,7 +240,7 @@ const Account = () => {
                 <TableRow key={account._id}>
                   <TableCell>{account.name}</TableCell>
                   <TableCell>{account.designation}</TableCell>
-                  <TableCell>
+                  <TableCell sx={{display: 'flex'}}>
                     <Link to={`/account/${account._id}`}>
                       <ModeEditIcon
                         sx={{

@@ -312,7 +312,7 @@ const Quote = () => {
                   <TableCell>${quote.amount}</TableCell>
                   <TableCell>{quote.entry}</TableCell>
                   <TableCell>{quote.expired}</TableCell>
-                  <TableCell>
+                  <TableCell sx={{display: 'flex'}}>
                     <Link to={`/quote/${quote._id}`}>
                       <ModeEditIcon
                         sx={{

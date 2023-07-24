@@ -243,7 +243,7 @@ const InformationTechnology = () => {
                 <TableRow key={informationTechnology._id}>
                   <TableCell>{informationTechnology.name}</TableCell>
                   <TableCell>{informationTechnology.designation}</TableCell>
-                  <TableCell>
+                  <TableCell sx={{display: 'flex'}}>
                     <Link
                       to={`/informationTechnology/${informationTechnology._id}`}
                     >

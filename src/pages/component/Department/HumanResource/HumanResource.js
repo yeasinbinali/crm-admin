@@ -242,7 +242,7 @@ const HumanResource = () => {
                 <TableRow key={humanResource._id}>
                   <TableCell>{humanResource.name}</TableCell>
                   <TableCell>{humanResource.designation}</TableCell>
-                  <TableCell>
+                  <TableCell sx={{display: 'flex'}}>
                     <Link to={`/humanResource/${humanResource._id}`}>
                       <ModeEditIcon
                         sx={{

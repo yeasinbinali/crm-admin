@@ -22,7 +22,6 @@ import Signup from "../../pages/component/Signup/Signup";
 import Deposit from "../../pages/component/Transaction/Deposit/Deposit";
 import Expense from "../../pages/component/Transaction/Expense/Expense";
 import Transfer from "../../pages/component/Transaction/Transfer/Transfer";
-import User from "../../pages/component/User/User/User";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const Router = createBrowserRouter([

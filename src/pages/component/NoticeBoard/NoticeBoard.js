@@ -285,7 +285,7 @@ const NoticeBoard = () => {
                   <TableCell sx={{ fontWeight: "bold" }}>
                     {notice.publishedBy}
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{display: 'flex'}}>
                     <Link to={`/notice/${notice._id}`}>
                       <ModeEditIcon
                         sx={{
