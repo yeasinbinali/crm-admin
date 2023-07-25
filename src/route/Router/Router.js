@@ -149,6 +149,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/notice/:id",
+        
         element: (
           <PrivateRoute>
             <NoticeBoardUpdate></NoticeBoardUpdate>
