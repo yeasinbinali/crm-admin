@@ -15,6 +15,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 
 const style = {
   position: "absolute",
@@ -74,9 +75,10 @@ const Finance = () => {
     <div style={{ background: "whitesmoke", padding: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Typography
-          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px" }}
+          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px", display: 'flex', alignItems: 'center' }}
           variant="h6"
         >
+          <RoomPreferencesIcon />
           Finance
         </Typography>
         <div>
@@ -241,7 +243,7 @@ const Finance = () => {
                 <TableRow key={finance._id}>
                   <TableCell>{finance.name}</TableCell>
                   <TableCell>{finance.designation}</TableCell>
-                  <TableCell sx={{display: 'flex'}}>
+                  <TableCell sx={{ display: "flex" }}>
                     <Link to={`/finance/${finance._id}`}>
                       <ModeEditIcon
                         sx={{

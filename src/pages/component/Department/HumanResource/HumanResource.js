@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 
 const style = {
   position: "absolute",
@@ -75,9 +76,10 @@ const HumanResource = () => {
     <div style={{ background: "whitesmoke", padding: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Typography
-          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px" }}
+          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px", display: 'flex', alignItems: 'center' }}
           variant="h6"
         >
+          <RoomPreferencesIcon />
           Human Resource
         </Typography>
         <div>
@@ -242,7 +244,7 @@ const HumanResource = () => {
                 <TableRow key={humanResource._id}>
                   <TableCell>{humanResource.name}</TableCell>
                   <TableCell>{humanResource.designation}</TableCell>
-                  <TableCell sx={{display: 'flex'}}>
+                  <TableCell sx={{ display: "flex" }}>
                     <Link to={`/humanResource/${humanResource._id}`}>
                       <ModeEditIcon
                         sx={{

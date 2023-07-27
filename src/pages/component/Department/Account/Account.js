@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 
 const style = {
   position: "absolute",
@@ -73,9 +74,10 @@ const Account = () => {
     <div style={{ background: "whitesmoke", padding: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Typography
-          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px" }}
+          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px", display: 'flex', alignItems: 'center' }}
           variant="h6"
         >
+          <RoomPreferencesIcon />
           Account
         </Typography>
         <div>
@@ -240,7 +242,7 @@ const Account = () => {
                 <TableRow key={account._id}>
                   <TableCell>{account.name}</TableCell>
                   <TableCell>{account.designation}</TableCell>
-                  <TableCell sx={{display: 'flex'}}>
+                  <TableCell sx={{ display: "flex" }}>
                     <Link to={`/account/${account._id}`}>
                       <ModeEditIcon
                         sx={{

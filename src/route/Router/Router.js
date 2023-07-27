@@ -3,10 +3,13 @@ import Main from "../../layout/Main";
 import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer";
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
 import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
+import Account from "../../pages/component/Department/Account/Account";
 import AccountUpdated from "../../pages/component/Department/Account/AccountUpdated";
-import Department from "../../pages/component/Department/Department/Department";
+import Finance from "../../pages/component/Department/Finance/Finance";
 import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
+import HumanResource from "../../pages/component/Department/HumanResource/HumanResource";
 import HumanResourceUpdate from "../../pages/component/Department/HumanResource/HumanResourceUpdate";
+import InformationTechnology from "../../pages/component/Department/InformationTechnology/InformationTechnology";
 import InformationTechnologyUpdate from "../../pages/component/Department/InformationTechnology/InformationTechnologyUpdate";
 import Login from "../../pages/component/Login/Login";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
@@ -111,9 +114,7 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/quote/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/quote/${params.id}`);
         },
       },
       {
@@ -133,9 +134,7 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/payment/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/payment/${params.id}`);
         },
       },
       {
@@ -149,16 +148,13 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/notice/:id",
-        
         element: (
           <PrivateRoute>
             <NoticeBoardUpdate></NoticeBoardUpdate>
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/notice/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/notice/${params.id}`);
         },
       },
       {
@@ -178,26 +174,16 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/recruitment/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/recruitment/${params.id}`);
         },
       },
-      // {
-      //   path: "/user",
-      //   element: (
-      //     <PrivateRoute>
-      //       <User></User>
-      //     </PrivateRoute>
-      //   ),
-      // },
       {
-        path: "/department",
+        path: '/finance',
         element: (
           <PrivateRoute>
-            <Department></Department>
+            <Finance></Finance>
           </PrivateRoute>
-        ),
+        )
       },
       {
         path: "/finance/:id",
@@ -207,10 +193,16 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/finance/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/finance/${params.id}`);
         },
+      },
+      {
+        path: '/account',
+        element: (
+          <PrivateRoute>
+            <Account></Account>
+          </PrivateRoute>
+        )
       },
       {
         path: "/account/:id",
@@ -220,10 +212,16 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/account/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/account/${params.id}`);
         },
+      },
+      {
+        path: '/humanResource',
+        element: (
+          <PrivateRoute>
+            <HumanResource></HumanResource>
+          </PrivateRoute>
+        )
       },
       {
         path: "/humanResource/:id",
@@ -233,10 +231,16 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/humanResource/${params.id}`
-          );
+          return fetch(`https://crm-admin-server.vercel.app/humanResource/${params.id}`);
         },
+      },
+      {
+        path: '/informationTechnology',
+        element: (
+          <PrivateRoute>
+            <InformationTechnology></InformationTechnology>
+          </PrivateRoute>
+        )
       },
       {
         path: "/informationTechnology/:id",
@@ -254,3 +258,6 @@ export const Router = createBrowserRouter([
     ],
   },
 ]);
+
+
+

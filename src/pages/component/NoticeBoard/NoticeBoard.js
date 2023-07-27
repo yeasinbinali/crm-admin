@@ -51,7 +51,7 @@ const NoticeBoard = () => {
       publishedBy: data.publishedBy,
     };
 
-    fetch("http://localhost:5000/notice", {
+    fetch("https://crm-admin-server.vercel.app/notice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -285,7 +285,7 @@ const NoticeBoard = () => {
                   <TableCell sx={{ fontWeight: "bold" }}>
                     {notice.publishedBy}
                   </TableCell>
-                  <TableCell sx={{display: 'flex'}}>
+                  <TableCell sx={{ display: "flex" }}>
                     <Link to={`/notice/${notice._id}`}>
                       <ModeEditIcon
                         sx={{

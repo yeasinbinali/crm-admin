@@ -289,7 +289,7 @@ const Payment = () => {
                   <TableCell>{payment.account}</TableCell>
                   <TableCell>${payment.amount}</TableCell>
                   <TableCell>{payment._id.slice(0, 10)}</TableCell>
-                  <TableCell sx={{display: 'flex'}}>
+                  <TableCell sx={{ display: "flex" }}>
                     <Link to={`/payment/${payment._id}`}>
                       <ModeEditIcon
                         sx={{

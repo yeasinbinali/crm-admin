@@ -32,7 +32,7 @@ const HumanResourceUpdate = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("HR updated successfully!");
-          navigate("/department");
+          navigate("/humanResource");
         }
       });
   };
@@ -55,7 +55,7 @@ const HumanResourceUpdate = () => {
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
         <Link
-          to="/department"
+          to="/humanResource"
           style={{ textDecoration: "none", color: "white" }}
         >
           Back

@@ -34,7 +34,7 @@ const FinanceUpdate = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Finance updated successfully!");
-          navigate("/department");
+          navigate("/finance");
           reset();
         }
       });
@@ -58,7 +58,7 @@ const FinanceUpdate = () => {
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
         <Link
-          to="/department"
+          to="/finance"
           style={{ textDecoration: "none", color: "white" }}
         >
           Back

@@ -33,7 +33,7 @@ const AccountUpdated = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Account updated successfully!");
-          navigate("/department");
+          navigate("/account");
         }
       });
   };
@@ -56,7 +56,7 @@ const AccountUpdated = () => {
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
         <Link
-          to="/department"
+          to="/account"
           style={{ textDecoration: "none", color: "white" }}
         >
           Back

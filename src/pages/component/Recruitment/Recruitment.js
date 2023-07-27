@@ -318,7 +318,7 @@ const Recruitment = () => {
                   <TableCell sx={{ fontWeight: "bold" }}>
                     {recruitment.status}
                   </TableCell>
-                  <TableCell sx={{display: 'flex'}}>
+                  <TableCell sx={{ display: "flex" }}>
                     <Link to={`/recruitment/${recruitment._id}`}>
                       <ModeEditIcon
                         sx={{

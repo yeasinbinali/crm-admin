@@ -17,7 +17,6 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
-// import PersonIcon from "@mui/icons-material/Person";
 import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Collapse from "@mui/material/Collapse";
@@ -43,6 +42,7 @@ function ResponsiveDrawer(props) {
   const [openCustomer, setOpenCustomer] = React.useState(false);
   const [openTranaction, setOpenTransaction] = React.useState(false);
   const [openSales, setOpenSales] = React.useState(false);
+  const [openDepartments, setOpenDepartments] = React.useState(false);
 
   const handleCustomerClick = () => {
     setOpenCustomer(!openCustomer);
@@ -52,6 +52,9 @@ function ResponsiveDrawer(props) {
   };
   const handleSalesClick = () => {
     setOpenSales(!openSales);
+  };
+  const handleDepartmentClick = () => {
+    setOpenDepartments(!openDepartments);
   };
 
   const handleLogout = () => {
@@ -76,7 +79,7 @@ function ResponsiveDrawer(props) {
               color: "black",
               display: "flex",
               alignItems: "center",
-              cursor: 'pointer'
+              cursor: "pointer",
             }}
           >
             <LogoutIcon sx={{ marginRight: "3px" }} />
@@ -93,7 +96,7 @@ function ResponsiveDrawer(props) {
               color: "black",
               display: "flex",
               alignItems: "center",
-              cursor: 'pointer'
+              cursor: "pointer",
             }}
           >
             <LoginIcon sx={{ marginRight: "3px" }} />
@@ -131,7 +134,7 @@ function ResponsiveDrawer(props) {
               marginBottom: "10px",
               justifyContent: "space-between",
               alignItems: "center",
-              cursor: 'pointer'
+              cursor: "pointer",
             }}
             onClick={handleCustomerClick}
           >
@@ -190,7 +193,7 @@ function ResponsiveDrawer(props) {
             textDecoration: "none",
             fontSize: "18px",
             color: "black",
-            cursor: 'pointer'
+            cursor: "pointer",
           }}
         >
           <Typography
@@ -274,7 +277,7 @@ function ResponsiveDrawer(props) {
             textDecoration: "none",
             fontSize: "18px",
             color: "black",
-            cursor: 'pointer'
+            cursor: "pointer",
           }}
         >
           <Typography
@@ -353,6 +356,105 @@ function ResponsiveDrawer(props) {
           </Collapse>
         </Link>
         <Link
+          sx={{
+            textDecoration: "none",
+            fontSize: "18px",
+            color: "black",
+            cursor: "pointer",
+          }}
+        >
+          <Typography
+            sx={{
+              display: "flex",
+              marginLeft: "20px",
+              marginBottom: "10px",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            onClick={handleDepartmentClick}
+          >
+            <Typography
+              sx={{ display: "flex", alignItems: "center", fontSize: "18px" }}
+            >
+              <RoomPreferencesIcon sx={{ marginRight: "3px" }} />
+              Departments
+            </Typography>
+            {openDepartments ? (
+              <ExpandLess />
+            ) : (
+              <ArrowBackIosNewIcon
+                sx={{ fontSize: "14px", marginRight: "5px" }}
+              />
+            )}
+          </Typography>
+          <Collapse in={openDepartments} timeout="auto" unmountOnExit>
+            <Link
+              href="/finance"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Finance
+            </Link>
+            <Link
+              href="/account"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              Account
+            </Link>
+            <Link
+              href="/humanResource"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              HR Dept.
+            </Link>
+            <Link
+              href="/informationTechnology"
+              sx={{
+                textDecoration: "none",
+                paddingLeft: "20px",
+                fontSize: "18px",
+                marginLeft: "20px",
+                marginBottom: "10px",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <ArrowRightIcon />
+              IT Dept.
+            </Link>
+          </Collapse>
+        </Link>
+        <Link
           href="/notice"
           sx={{
             textDecoration: "none",
@@ -381,36 +483,6 @@ function ResponsiveDrawer(props) {
         >
           <AutoModeIcon sx={{ marginRight: "3px" }} />
           Recruitment
-        </Link>
-        {/* <Link
-          href="user"
-          sx={{
-            textDecoration: "none",
-            fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
-            color: "black",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <PersonIcon sx={{ marginRight: "3px" }} />
-          User
-        </Link> */}
-        <Link
-          href="department"
-          sx={{
-            textDecoration: "none",
-            fontSize: "18px",
-            marginLeft: "20px",
-            marginBottom: "10px",
-            color: "black",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <RoomPreferencesIcon sx={{ marginRight: "3px" }} />
-          Departments
         </Link>
       </List>
       <Divider />

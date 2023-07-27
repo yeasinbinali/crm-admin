@@ -35,7 +35,7 @@ const InformationTechnologyUpdate = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("IT updated successfully!");
-          navigate("/department");
+          navigate("/informationTechnology");
         }
       });
   };
@@ -59,7 +59,7 @@ const InformationTechnologyUpdate = () => {
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
         <Link
-          to="/department"
+          to="/informationTechnology"
           style={{ textDecoration: "none", color: "white" }}
         >
           Back
