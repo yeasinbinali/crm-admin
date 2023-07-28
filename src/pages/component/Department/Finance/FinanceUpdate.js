@@ -57,10 +57,7 @@ const FinanceUpdate = () => {
         Update Finance
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link
-          to="/finance"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link to="/finance" style={{ textDecoration: "none", color: "white" }}>
           Back
         </Link>
       </Button>

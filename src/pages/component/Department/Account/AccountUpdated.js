@@ -55,10 +55,7 @@ const AccountUpdated = () => {
         Update Account
       </Typography>
       <Button sx={{ margin: "10px 0" }} size="small" variant="contained">
-        <Link
-          to="/account"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link to="/account" style={{ textDecoration: "none", color: "white" }}>
           Back
         </Link>
       </Button>

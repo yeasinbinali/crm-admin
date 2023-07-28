@@ -74,7 +74,13 @@ const Account = () => {
     <div style={{ background: "whitesmoke", padding: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Typography
-          sx={{ color: "#1C315E", fontWeight: "bold", marginBottom: "10px", display: 'flex', alignItems: 'center' }}
+          sx={{
+            color: "#1C315E",
+            fontWeight: "bold",
+            marginBottom: "10px",
+            display: "flex",
+            alignItems: "center",
+          }}
           variant="h6"
         >
           <RoomPreferencesIcon />
