@@ -31,7 +31,7 @@ const style = {
 const HumanResource = () => {
   const [humanResources, setHumanResources] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/humanResource")
+    fetch("https://crm-server-ouus.onrender.com/humanResource")
       .then((res) => res.json())
       .then((data) => setHumanResources(data));
   }, []);
@@ -52,7 +52,7 @@ const HumanResource = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/humanResource", {
+    fetch("https://crm-server-ouus.onrender.com/humanResource", {
       method: "POST",
       headers: {
         "content-type": "application/json",

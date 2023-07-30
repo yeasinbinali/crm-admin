@@ -21,13 +21,16 @@ const HumanResourceUpdate = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch(`http://localhost:5000/humanResource/${storedHR._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(HRDetails),
-    })
+    fetch(
+      `https://crm-server-ouus.onrender.com/humanResource/${storedHR._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(HRDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

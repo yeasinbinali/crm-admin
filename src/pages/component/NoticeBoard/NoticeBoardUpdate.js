@@ -24,7 +24,7 @@ const NoticeBoardUpdate = () => {
       description: data.description,
       publishedBy: data.publishedBy,
     };
-    fetch(`http://localhost:5000/notice/${storedNotice._id}`, {
+    fetch(`https://crm-server-ouus.onrender.com/notice/${storedNotice._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

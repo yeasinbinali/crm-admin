@@ -48,7 +48,7 @@ const Expense = () => {
       description: data.description,
       amount: data.amount,
     };
-    fetch("http://localhost:5000/expense", {
+    fetch("https://crm-server-ouus.onrender.com/expense", {
       method: "POST",
       headers: {
         "content-type": "application/json",

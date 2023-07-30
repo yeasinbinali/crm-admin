@@ -52,7 +52,7 @@ const Recruitment = () => {
       status: data.status,
     };
 
-    fetch("http://localhost:5000/recruitment", {
+    fetch("https://crm-server-ouus.onrender.com/recruitment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

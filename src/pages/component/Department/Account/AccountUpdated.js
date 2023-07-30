@@ -22,7 +22,7 @@ const AccountUpdated = () => {
       designation: data.designation,
     };
 
-    fetch(`http://localhost:5000/account/${storedAccount._id}`, {
+    fetch(`https://crm-server-ouus.onrender.com/account/${storedAccount._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

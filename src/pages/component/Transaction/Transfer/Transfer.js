@@ -49,7 +49,7 @@ const Transfer = () => {
       amount: data.amount,
       tag: data.tag.toUpperCase(),
     };
-    fetch("http://localhost:5000/transfer", {
+    fetch("https://crm-server-ouus.onrender.com/transfer", {
       method: "POST",
       headers: {
         "content-type": "application/json",

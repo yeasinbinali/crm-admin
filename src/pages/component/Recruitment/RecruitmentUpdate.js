@@ -25,13 +25,16 @@ const RecruitmentUpdate = () => {
       lastDate: data.lastDate,
       status: data.status,
     };
-    fetch(`http://localhost:5000/recruitment/${storedRecruitment._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(recruitmentDetails),
-    })
+    fetch(
+      `https://crm-server-ouus.onrender.com/recruitment/${storedRecruitment._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(recruitmentDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

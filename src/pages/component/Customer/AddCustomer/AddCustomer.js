@@ -40,7 +40,7 @@ const AddCustomer = () => {
             sex: data.sex,
             status: data.status,
           };
-          fetch("http://localhost:5000/customers", {
+          fetch("https://crm-server-ouus.onrender.com/customers", {
             method: "POST",
             headers: {
               "content-type": "application/json",

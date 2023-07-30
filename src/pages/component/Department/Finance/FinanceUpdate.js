@@ -23,7 +23,7 @@ const FinanceUpdate = () => {
       designation: data.designation,
     };
 
-    fetch(`http://localhost:5000/finance/${storedFinance._id}`, {
+    fetch(`https://crm-server-ouus.onrender.com/finance/${storedFinance._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

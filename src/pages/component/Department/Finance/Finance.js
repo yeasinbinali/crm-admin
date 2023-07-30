@@ -31,7 +31,7 @@ const style = {
 const Finance = () => {
   const [finances, setFinances] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/finance")
+    fetch("https://crm-server-ouus.onrender.com/finance")
       .then((res) => res.json())
       .then((data) => setFinances(data));
   }, []);
@@ -50,7 +50,7 @@ const Finance = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/finance", {
+    fetch("https://crm-server-ouus.onrender.com/finance", {
       method: "POST",
       headers: {
         "content-type": "application/json",

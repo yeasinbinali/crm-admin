@@ -25,7 +25,7 @@ const QuoteUpdate = () => {
       entry: data.entry,
       expired: data.expired,
     };
-    fetch(`http://localhost:5000/quote/${storedQuote._id}`, {
+    fetch(`https://crm-server-ouus.onrender.com/quote/${storedQuote._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

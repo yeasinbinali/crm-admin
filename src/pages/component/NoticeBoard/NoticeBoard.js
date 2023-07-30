@@ -51,7 +51,7 @@ const NoticeBoard = () => {
       publishedBy: data.publishedBy,
     };
 
-    fetch("http://localhost:5000/notice", {
+    fetch("https://crm-server-ouus.onrender.com/notice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

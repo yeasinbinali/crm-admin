@@ -59,7 +59,7 @@ export const Router = createBrowserRouter([
             <CustomerList></CustomerList>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/customers"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/customers"),
       },
       {
         path: "/deposit",
@@ -68,7 +68,7 @@ export const Router = createBrowserRouter([
             <Deposit></Deposit>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/deposit"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/deposit"),
       },
       {
         path: "/expense",
@@ -77,7 +77,7 @@ export const Router = createBrowserRouter([
             <Expense></Expense>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/expense"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/expense"),
       },
       {
         path: "/transfer",
@@ -86,7 +86,7 @@ export const Router = createBrowserRouter([
             <Transfer></Transfer>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/transfer"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/transfer"),
       },
       {
         path: "/invoice",
@@ -95,7 +95,7 @@ export const Router = createBrowserRouter([
             <Invoice></Invoice>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/invoice"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/invoice"),
       },
       {
         path: "/quote",
@@ -104,7 +104,7 @@ export const Router = createBrowserRouter([
             <Quote></Quote>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/quote"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/quote"),
       },
       {
         path: "/quote/:id",
@@ -114,7 +114,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/quote/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/quote/${params.id}`
+          );
         },
       },
       {
@@ -124,7 +126,7 @@ export const Router = createBrowserRouter([
             <Payment></Payment>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/payment"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/payment"),
       },
       {
         path: "/payment/:id",
@@ -134,7 +136,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/payment/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/payment/${params.id}`
+          );
         },
       },
       {
@@ -144,7 +148,7 @@ export const Router = createBrowserRouter([
             <NoticeBoard></NoticeBoard>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/notice"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/notice"),
       },
       {
         path: "/notice/:id",
@@ -154,7 +158,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/notice/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/notice/${params.id}`
+          );
         },
       },
       {
@@ -164,7 +170,7 @@ export const Router = createBrowserRouter([
             <Recruitment></Recruitment>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/recruitment"),
+        loader: () => fetch("https://crm-server-ouus.onrender.com/recruitment"),
       },
       {
         path: "/recruitment/:id",
@@ -174,7 +180,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/recruitment/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/recruitment/${params.id}`
+          );
         },
       },
       {
@@ -193,7 +201,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/finance/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/finance/${params.id}`
+          );
         },
       },
       {
@@ -212,7 +222,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/account/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/account/${params.id}`
+          );
         },
       },
       {
@@ -231,7 +243,9 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/humanResource/${params.id}`);
+          return fetch(
+            `https://crm-server-ouus.onrender.com/humanResource/${params.id}`
+          );
         },
       },
       {
@@ -251,7 +265,7 @@ export const Router = createBrowserRouter([
         ),
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/informationTechnology/${params.id}`
+            `https://crm-server-ouus.onrender.com/informationTechnology/${params.id}`
           );
         },
       },

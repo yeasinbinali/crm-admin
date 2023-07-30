@@ -55,7 +55,7 @@ const Quote = () => {
       entry: data.entry,
       expired: data.expired,
     };
-    fetch("http://localhost:5000/quote", {
+    fetch("https://crm-server-ouus.onrender.com/quote", {
       method: "POST",
       headers: {
         "content-type": "application/json",

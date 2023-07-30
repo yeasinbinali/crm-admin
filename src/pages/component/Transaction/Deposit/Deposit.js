@@ -47,7 +47,7 @@ const Deposit = () => {
       description: data.description,
       amount: data.amount,
     };
-    fetch("http://localhost:5000/deposit", {
+    fetch("https://crm-server-ouus.onrender.com/deposit", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -51,7 +51,7 @@ const Payment = () => {
       amount: data.amount,
     };
 
-    fetch("http://localhost:5000/payment", {
+    fetch("https://crm-server-ouus.onrender.com/payment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -49,7 +49,7 @@ const Invoice = () => {
       due: data.due,
       type: data.type,
     };
-    fetch("http://localhost:5000/invoice", {
+    fetch("https://crm-server-ouus.onrender.com/invoice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

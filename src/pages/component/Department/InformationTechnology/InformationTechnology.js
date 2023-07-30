@@ -31,7 +31,7 @@ const style = {
 const InformationTechnology = () => {
   const [informationTechnologies, setinformationTechnologies] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/informationTechnology")
+    fetch("https://crm-server-ouus.onrender.com/informationTechnology")
       .then((res) => res.json())
       .then((data) => setinformationTechnologies(data));
   }, []);
@@ -52,7 +52,7 @@ const InformationTechnology = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("http://localhost:5000/informationTechnology", {
+    fetch("https://crm-server-ouus.onrender.com/informationTechnology", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -24,7 +24,7 @@ const PaymentUpdate = () => {
       account: data.account,
       amount: data.amount,
     };
-    fetch(`http://localhost:5000/payment/${storedPayment._id}`, {
+    fetch(`https://crm-server-ouus.onrender.com/payment/${storedPayment._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
