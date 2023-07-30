@@ -52,7 +52,7 @@ const Recruitment = () => {
       status: data.status,
     };
 
-    fetch("https://crm-admin-server.vercel.app/recruitment", {
+    fetch("http://localhost:5000/recruitment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

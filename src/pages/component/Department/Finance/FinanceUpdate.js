@@ -23,7 +23,7 @@ const FinanceUpdate = () => {
       designation: data.designation,
     };
 
-    fetch(`https://crm-admin-server.vercel.app/finance/${storedFinance._id}`, {
+    fetch(`http://localhost:5000/finance/${storedFinance._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

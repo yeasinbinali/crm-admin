@@ -21,7 +21,7 @@ const HumanResourceUpdate = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch(`https://crm-admin-server.vercel.app/humanResource/${storedHR._id}`, {
+    fetch(`http://localhost:5000/humanResource/${storedHR._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

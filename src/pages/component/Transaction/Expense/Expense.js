@@ -48,7 +48,7 @@ const Expense = () => {
       description: data.description,
       amount: data.amount,
     };
-    fetch("https://crm-admin-server.vercel.app/expense", {
+    fetch("http://localhost:5000/expense", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -173,7 +173,7 @@ const Expense = () => {
                     maxLength: 10,
                   })}
                 />
-                {errors.number?.type === "maxLength" && (
+                {errors.description?.type === "maxLength" && (
                   <p
                     style={{ color: "red", margin: "0", fontSize: "14px" }}
                     role="alert"

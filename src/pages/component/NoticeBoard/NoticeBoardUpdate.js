@@ -24,7 +24,7 @@ const NoticeBoardUpdate = () => {
       description: data.description,
       publishedBy: data.publishedBy,
     };
-    fetch(`https://crm-admin-server.vercel.app/notice/${storedNotice._id}`, {
+    fetch(`http://localhost:5000/notice/${storedNotice._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

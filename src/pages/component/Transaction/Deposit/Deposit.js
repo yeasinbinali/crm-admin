@@ -47,7 +47,7 @@ const Deposit = () => {
       description: data.description,
       amount: data.amount,
     };
-    fetch("https://crm-admin-server.vercel.app/deposit", {
+    fetch("http://localhost:5000/deposit", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -56,7 +56,7 @@ const Deposit = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data) {
+        if (data.acknowledged) {
           toast.success("New deposit added");
           reset();
           window.location.reload(false);

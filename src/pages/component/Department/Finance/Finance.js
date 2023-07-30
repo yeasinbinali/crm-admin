@@ -31,7 +31,7 @@ const style = {
 const Finance = () => {
   const [finances, setFinances] = useState([]);
   useEffect(() => {
-    fetch("https://crm-admin-server.vercel.app/finance")
+    fetch("http://localhost:5000/finance")
       .then((res) => res.json())
       .then((data) => setFinances(data));
   }, []);
@@ -50,7 +50,7 @@ const Finance = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("https://crm-admin-server.vercel.app/finance", {
+    fetch("http://localhost:5000/finance", {
       method: "POST",
       headers: {
         "content-type": "application/json",

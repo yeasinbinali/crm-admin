@@ -25,16 +25,13 @@ const RecruitmentUpdate = () => {
       lastDate: data.lastDate,
       status: data.status,
     };
-    fetch(
-      `https://crm-admin-server.vercel.app/recruitment/${storedRecruitment._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(recruitmentDetails),
-      }
-    )
+    fetch(`http://localhost:5000/recruitment/${storedRecruitment._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(recruitmentDetails),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

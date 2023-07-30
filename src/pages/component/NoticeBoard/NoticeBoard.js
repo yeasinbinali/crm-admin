@@ -51,7 +51,7 @@ const NoticeBoard = () => {
       publishedBy: data.publishedBy,
     };
 
-    fetch("https://crm-admin-server.vercel.app/notice", {
+    fetch("http://localhost:5000/notice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

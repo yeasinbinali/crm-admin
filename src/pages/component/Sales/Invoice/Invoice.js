@@ -49,7 +49,7 @@ const Invoice = () => {
       due: data.due,
       type: data.type,
     };
-    fetch("https://crm-admin-server.vercel.app/invoice", {
+    fetch("http://localhost:5000/invoice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

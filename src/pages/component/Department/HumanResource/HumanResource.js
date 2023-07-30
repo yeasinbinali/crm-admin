@@ -31,7 +31,7 @@ const style = {
 const HumanResource = () => {
   const [humanResources, setHumanResources] = useState([]);
   useEffect(() => {
-    fetch("https://crm-admin-server.vercel.app/humanResource")
+    fetch("http://localhost:5000/humanResource")
       .then((res) => res.json())
       .then((data) => setHumanResources(data));
   }, []);
@@ -52,7 +52,7 @@ const HumanResource = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch("https://crm-admin-server.vercel.app/humanResource", {
+    fetch("http://localhost:5000/humanResource", {
       method: "POST",
       headers: {
         "content-type": "application/json",

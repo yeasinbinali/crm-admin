@@ -40,7 +40,7 @@ const AddCustomer = () => {
             sex: data.sex,
             status: data.status,
           };
-          fetch("https://crm-admin-server.vercel.app/customers", {
+          fetch("http://localhost:5000/customers", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -178,7 +178,7 @@ const AddCustomer = () => {
               borderRadius: "5px",
             }}
             placeholder="Enter Address"
-            {...register("address", { required: true, maxLength: 11 })}
+            {...register("address", { required: true })}
           />
         </div>
         <div style={{ marginBottom: "10px" }}>

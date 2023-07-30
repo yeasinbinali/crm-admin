@@ -49,7 +49,7 @@ const Transfer = () => {
       amount: data.amount,
       tag: data.tag.toUpperCase(),
     };
-    fetch("https://crm-admin-server.vercel.app/transfer", {
+    fetch("http://localhost:5000/transfer", {
       method: "POST",
       headers: {
         "content-type": "application/json",

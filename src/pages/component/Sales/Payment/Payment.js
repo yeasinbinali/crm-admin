@@ -51,7 +51,7 @@ const Payment = () => {
       amount: data.amount,
     };
 
-    fetch("https://crm-admin-server.vercel.app/payment", {
+    fetch("http://localhost:5000/payment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

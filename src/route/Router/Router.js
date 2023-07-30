@@ -3,14 +3,14 @@ import Main from "../../layout/Main";
 import AddCustomer from "../../pages/component/Customer/AddCustomer/AddCustomer";
 import CustomerList from "../../pages/component/Customer/CustomerList/CustomerList";
 import Dashboard from "../../pages/component/Dashboard/Dashboard/Dashboard";
-// import Account from "../../pages/component/Department/Account/Account";
-// import AccountUpdated from "../../pages/component/Department/Account/AccountUpdated";
-// import Finance from "../../pages/component/Department/Finance/Finance";
-// import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
-// import HumanResource from "../../pages/component/Department/HumanResource/HumanResource";
-// import HumanResourceUpdate from "../../pages/component/Department/HumanResource/HumanResourceUpdate";
-// import InformationTechnology from "../../pages/component/Department/InformationTechnology/InformationTechnology";
-// import InformationTechnologyUpdate from "../../pages/component/Department/InformationTechnology/InformationTechnologyUpdate";
+import Account from "../../pages/component/Department/Account/Account";
+import AccountUpdated from "../../pages/component/Department/Account/AccountUpdated";
+import Finance from "../../pages/component/Department/Finance/Finance";
+import FinanceUpdate from "../../pages/component/Department/Finance/FinanceUpdate";
+import HumanResource from "../../pages/component/Department/HumanResource/HumanResource";
+import HumanResourceUpdate from "../../pages/component/Department/HumanResource/HumanResourceUpdate";
+import InformationTechnology from "../../pages/component/Department/InformationTechnology/InformationTechnology";
+import InformationTechnologyUpdate from "../../pages/component/Department/InformationTechnology/InformationTechnologyUpdate";
 import Login from "../../pages/component/Login/Login";
 import NoticeBoard from "../../pages/component/NoticeBoard/NoticeBoard";
 import NoticeBoardUpdate from "../../pages/component/NoticeBoard/NoticeBoardUpdate";
@@ -59,7 +59,7 @@ export const Router = createBrowserRouter([
             <CustomerList></CustomerList>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/customers"),
+        loader: () => fetch("http://localhost:5000/customers"),
       },
       {
         path: "/deposit",
@@ -68,7 +68,7 @@ export const Router = createBrowserRouter([
             <Deposit></Deposit>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/deposit"),
+        loader: () => fetch("http://localhost:5000/deposit"),
       },
       {
         path: "/expense",
@@ -77,7 +77,7 @@ export const Router = createBrowserRouter([
             <Expense></Expense>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/expense"),
+        loader: () => fetch("http://localhost:5000/expense"),
       },
       {
         path: "/transfer",
@@ -86,7 +86,7 @@ export const Router = createBrowserRouter([
             <Transfer></Transfer>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/transfer"),
+        loader: () => fetch("http://localhost:5000/transfer"),
       },
       {
         path: "/invoice",
@@ -95,7 +95,7 @@ export const Router = createBrowserRouter([
             <Invoice></Invoice>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/invoice"),
+        loader: () => fetch("http://localhost:5000/invoice"),
       },
       {
         path: "/quote",
@@ -104,7 +104,7 @@ export const Router = createBrowserRouter([
             <Quote></Quote>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/quote"),
+        loader: () => fetch("http://localhost:5000/quote"),
       },
       {
         path: "/quote/:id",
@@ -114,9 +114,7 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/quote/${params.id}`
-          );
+          return fetch(`http://localhost:5000/quote/${params.id}`);
         },
       },
       {
@@ -126,7 +124,7 @@ export const Router = createBrowserRouter([
             <Payment></Payment>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/payment"),
+        loader: () => fetch("http://localhost:5000/payment"),
       },
       {
         path: "/payment/:id",
@@ -136,9 +134,7 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/payment/${params.id}`
-          );
+          return fetch(`http://localhost:5000/payment/${params.id}`);
         },
       },
       {
@@ -148,7 +144,7 @@ export const Router = createBrowserRouter([
             <NoticeBoard></NoticeBoard>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/notice"),
+        loader: () => fetch("http://localhost:5000/notice"),
       },
       {
         path: "/notice/:id",
@@ -158,9 +154,7 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(
-            `https://crm-admin-server.vercel.app/notice/${params.id}`
-          );
+          return fetch(`http://localhost:5000/notice/${params.id}`);
         },
       },
       {
@@ -170,7 +164,7 @@ export const Router = createBrowserRouter([
             <Recruitment></Recruitment>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://crm-admin-server.vercel.app/recruitment"),
+        loader: () => fetch("http://localhost:5000/recruitment"),
       },
       {
         path: "/recruitment/:id",
@@ -180,89 +174,87 @@ export const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
+          return fetch(`http://localhost:5000/recruitment/${params.id}`);
+        },
+      },
+      {
+        path: "/finance",
+        element: (
+          <PrivateRoute>
+            <Finance></Finance>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/finance/:id",
+        element: (
+          <PrivateRoute>
+            <FinanceUpdate></FinanceUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/finance/${params.id}`);
+        },
+      },
+      {
+        path: "/account",
+        element: (
+          <PrivateRoute>
+            <Account></Account>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/account/:id",
+        element: (
+          <PrivateRoute>
+            <AccountUpdated></AccountUpdated>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/account/${params.id}`);
+        },
+      },
+      {
+        path: "/humanResource",
+        element: (
+          <PrivateRoute>
+            <HumanResource></HumanResource>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/humanResource/:id",
+        element: (
+          <PrivateRoute>
+            <HumanResourceUpdate></HumanResourceUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/humanResource/${params.id}`);
+        },
+      },
+      {
+        path: "/informationTechnology",
+        element: (
+          <PrivateRoute>
+            <InformationTechnology></InformationTechnology>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/informationTechnology/:id",
+        element: (
+          <PrivateRoute>
+            <InformationTechnologyUpdate></InformationTechnologyUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
           return fetch(
-            `https://crm-admin-server.vercel.app/recruitment/${params.id}`
+            `http://localhost:5000/informationTechnology/${params.id}`
           );
         },
       },
-      // {
-      //   path: "/finance",
-      //   element: (
-      //     <PrivateRoute>
-      //       <Finance></Finance>
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/finance/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <FinanceUpdate></FinanceUpdate>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) => {
-      //     return fetch(`https://crm-admin-server.vercel.app/finance/${params.id}`);
-      //   },
-      // },
-      // {
-      //   path: "/account",
-      //   element: (
-      //     <PrivateRoute>
-      //       <Account></Account>
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/account/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <AccountUpdated></AccountUpdated>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) => {
-      //     return fetch(`https://crm-admin-server.vercel.app/account/${params.id}`);
-      //   },
-      // },
-      // {
-      //   path: "/humanResource",
-      //   element: (
-      //     <PrivateRoute>
-      //       <HumanResource></HumanResource>
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/humanResource/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <HumanResourceUpdate></HumanResourceUpdate>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) => {
-      //     return fetch(`https://crm-admin-server.vercel.app/humanResource/${params.id}`);
-      //   },
-      // },
-      // {
-      //   path: "/informationTechnology",
-      //   element: (
-      //     <PrivateRoute>
-      //       <InformationTechnology></InformationTechnology>
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/informationTechnology/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <InformationTechnologyUpdate></InformationTechnologyUpdate>
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) => {
-      //     return fetch(
-      //       `https://crm-admin-server.vercel.app/informationTechnology/${params.id}`
-      //     );
-      //   },
-      // },
     ],
   },
 ]);

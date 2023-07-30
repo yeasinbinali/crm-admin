@@ -55,7 +55,7 @@ const Quote = () => {
       entry: data.entry,
       expired: data.expired,
     };
-    fetch("https://crm-admin-server.vercel.app/quote", {
+    fetch("http://localhost:5000/quote", {
       method: "POST",
       headers: {
         "content-type": "application/json",

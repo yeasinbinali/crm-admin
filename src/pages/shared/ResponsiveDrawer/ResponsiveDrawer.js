@@ -17,7 +17,7 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
-// import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
+import RoomPreferencesIcon from "@mui/icons-material/RoomPreferences";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -42,7 +42,7 @@ function ResponsiveDrawer(props) {
   const [openCustomer, setOpenCustomer] = React.useState(false);
   const [openTranaction, setOpenTransaction] = React.useState(false);
   const [openSales, setOpenSales] = React.useState(false);
-  // const [openDepartments, setOpenDepartments] = React.useState(false);
+  const [openDepartments, setOpenDepartments] = React.useState(false);
 
   const handleCustomerClick = () => {
     setOpenCustomer(!openCustomer);
@@ -53,9 +53,9 @@ function ResponsiveDrawer(props) {
   const handleSalesClick = () => {
     setOpenSales(!openSales);
   };
-  // const handleDepartmentClick = () => {
-  //   setOpenDepartments(!openDepartments);
-  // };
+  const handleDepartmentClick = () => {
+    setOpenDepartments(!openDepartments);
+  };
 
   const handleLogout = () => {
     logOut()
@@ -355,7 +355,7 @@ function ResponsiveDrawer(props) {
             </Link>
           </Collapse>
         </Link>
-        {/* <Link
+        <Link
           sx={{
             textDecoration: "none",
             fontSize: "18px",
@@ -453,7 +453,7 @@ function ResponsiveDrawer(props) {
               IT Dept.
             </Link>
           </Collapse>
-        </Link> */}
+        </Link>
         <Link
           href="/notice"
           sx={{

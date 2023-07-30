@@ -21,16 +21,13 @@ const InformationTechnologyUpdate = () => {
       name: data.name,
       designation: data.designation,
     };
-    fetch(
-      `https://crm-admin-server.vercel.app/informationTechnology/${storedIT._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(ITDetails),
-      }
-    )
+    fetch(`http://localhost:5000/informationTechnology/${storedIT._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(ITDetails),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
